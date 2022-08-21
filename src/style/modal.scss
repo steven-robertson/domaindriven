@@ -1,0 +1,23 @@
+.modal {
+  position: absolute;
+  top: 10vh;
+  left: 20vw;
+  right: 20vw;
+  bottom: 10vh;
+  background-color: White;
+  border-width: 0 !important;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  outline: none;
+  overflow: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(240, 240, 240, 0.9);
+}

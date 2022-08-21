@@ -1,0 +1,154 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-padding-top: 40px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: .75em 0
+}
+
+h3 {
+  font-size: 1.17em;
+  margin: .83em 0
+}
+
+h4, p,
+blockquote, ul,
+fieldset, /*form,*/
+ol, dl, dir,
+menu {
+  margin: 1.12em 0
+}
+
+h5 {
+  font-size: .83em;
+  margin: 1.5em 0
+}
+
+h6 {
+  font-size: .75em;
+  margin: 1.67em 0
+}
+
+@media only screen {
+  body {
+    margin: 0;
+    overflow-y: scroll;
+    background-color: #eee;
+  }
+
+  h1 {
+    background-color: White;
+    color: RoyalBlue;
+    border-radius: 4px;
+    padding: 0 0 0 6px;
+  }
+
+  h2, h3, h4, h5, h6 {
+    color: SteelBlue;
+  }
+
+  h2:after {
+    content: ' ';
+    display: block;
+    border: 1px solid SteelBlue;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+
+input[type="submit"],
+input[type="button"] {
+  display: unset;
+  margin-top: 20px;
+  margin-right: 8px;
+}
+
+input[type="checkbox"] {
+  display: inline;
+  margin: 0 8px 0 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 3px;
+}
+
+li > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+blockquote {
+  margin: 10px 0 10px 50px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+}
+
+hr {
+  border: 1px solid #ddd;
+}

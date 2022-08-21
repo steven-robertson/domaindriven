@@ -1,0 +1,166 @@
+// Variables required for calculating min-height of page-content.
+$header-height: 30px;
+$footer-height: 30px;
+$page-content-border: 1px;
+
+.page-header-spacer {
+  height: #{$header-height - $page-content-border};
+  min-height: #{$header-height - $page-content-border};
+  max-height: #{$header-height - $page-content-border};
+}
+
+.page-header {
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+  height: #{$header-height - $page-content-border};
+  min-height: #{$header-height - $page-content-border};
+  max-height: #{$header-height - $page-content-border};
+  overflow: hidden;
+  border-bottom: $page-content-border solid #ddd;
+  background-color: White;
+
+  div {
+    padding: 0 4px 4px 8px;
+    color: #666;
+
+    a, a:visited {
+      color: #666;
+      text-decoration: none;
+    }
+  }
+}
+
+// Links in top-right page corner.
+.page-header-top-right {
+  position: fixed;
+  z-index: 1001;
+  top: 3px;
+  right: 0;
+  padding: 0 8px 4px 4px;
+  color: #666;
+  text-transform: uppercase;
+  font-size: smaller;
+
+  a, a:visited {
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.page-footer {
+  height: #{$footer-height - $page-content-border};
+  min-height: #{$footer-height - $page-content-border};
+  max-height: #{$footer-height - $page-content-border};
+  overflow: hidden;
+  border-top: $page-content-border solid #ddd;
+  background-color: White;
+  position: absolute;
+  width: 100%;
+
+  div {
+    z-index: 999999 !important;
+    padding: 2px 0 0 8px;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+  }
+}
+
+.page-content {
+  min-height: calc(100vh - #{$header-height + $footer-height});
+  padding: 15px 20px 20px 20px;
+}
+
+// Positioning for the message displayed using the Waiting component.
+.waiting-msg {
+  position: fixed;
+  bottom: #{$footer-height + 20px};
+  color: RoyalBlue;
+}
+
+// Red highlighting for form errors.
+.form-error {
+  color: indianred;
+}
+
+.copyright-notice {
+  a, a:visited {
+    color: #666;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+// Code examples on the help page.
+.code-block {
+  border: 1px solid #ddd;
+  background-color: White;
+  padding: 4px 4px 4px 8px;
+  border-radius: 4px;
+
+  code {
+    white-space: pre-line;
+    font-size: 16px;
+  }
+}
+
+// Code example output on the help page.
+.code-block-example-output {
+  border: 1px solid #ddd;
+  background-color: White;
+  padding: 4px 4px 4px 8px;
+  border-radius: 4px;
+
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+.error-page {
+  background-color: White;
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 4px;
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  .error-msg {
+    display: inline;
+    border: 1px solid salmon;
+    border-radius: 4px;
+    background-color: mistyrose;
+    padding: 0 6px 2px 6px;
+    margin-left: 0.5em;
+    color: firebrick;
+  }
+
+  hr {
+    margin: 25px 0;
+    border: 1px solid #eee;
+  }
+
+  .button-group {
+    button {
+      margin-right: 10px;
+    }
+  }
+}
+
+.page-actions {
+  margin: 10px 0 20px 0;
+}
+
+.homepage {
+  margin-top: 15px;
+}

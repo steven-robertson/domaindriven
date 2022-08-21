@@ -1,0 +1,11 @@
+.link {
+  text-decoration: none;
+  color: SteelBlue;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.link:active {
+  background-color: SteelBlue;
+  color: White;
+}

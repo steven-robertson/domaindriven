@@ -1,0 +1,68 @@
+@mixin markdown-editor-mixin {
+  background-color: White;
+  border-radius: 4px;
+  color: #222;
+  padding: 0 4px;
+
+  p:first-child {
+    margin-top: 8px;
+  }
+
+  .katex-display:last-child {
+    padding-bottom: 1em;
+  }
+
+  img {
+    padding: 4px 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    background-color: unset;
+    color: SteelBlue;
+    padding-left: 0;
+  }
+
+  h1:after,
+  h2:after,
+  h3:after,
+  h4:after,
+  h5:after,
+  h6:after,
+  h2:after {
+    content: ' ';
+    display: block;
+    border: 1px solid SteelBlue;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+}
+
+// Markdown editor preview mode.
+.tme-viewer {
+  @include markdown-editor-mixin;
+
+  // Keeps the input box the same size as default textarea.
+  min-height: 119px !important;
+
+  // Removes top and bottom padding.
+  p:first-child { margin-top: 0; }
+  p:last-child { margin-bottom: 0; }
+}
+
+// Keeps the buttons the same size when toggling views.
+.tme-menu-item {
+  min-width: 32px;
+  min-height: 35px;
+}
+
+// Keeps the line below in same position when toggling views.
+.tme-container {
+  min-height: 175px;
+}

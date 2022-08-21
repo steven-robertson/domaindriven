@@ -1,0 +1,25 @@
+:8080 {
+
+    @fonts {
+        path /dist/fonts/*
+    }
+
+    handle @fonts {
+        @woff path *.woff
+        header @woff Content-Type application/font-woff defer
+
+        @woff2 path *.woff2
+        header @woff Content-Type application/font-woff2 defer
+
+        @ttf path *.woff2
+        header @ttf Content-Type application/x-font-ttf defer
+
+        file_server
+    }
+
+    route {
+        root * /srv
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+}

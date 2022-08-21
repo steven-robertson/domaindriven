@@ -1,0 +1,26 @@
+ol.breadcrumbs {
+  background-color: White;
+  color: #666;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0 6px;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+
+  li.breadcrumb-separator {
+    color: #aaa;
+    margin: auto 6px;
+    user-select: none;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: 400;
+    color: RoyalBlue;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

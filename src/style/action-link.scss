@@ -1,0 +1,24 @@
+.action-link {
+  text-transform: lowercase;
+  text-decoration: none;
+  color: SteelBlue;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}
+
+.action-link:active {
+  background-color: SteelBlue;
+  color: White;
+}
+
+.action-link:before {
+  content: '[';
+}
+
+.action-link:after {
+  content: ']';
+}

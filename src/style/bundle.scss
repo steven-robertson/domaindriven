@@ -1,0 +1,167 @@
+@import "../../node_modules/primeflex/primeflex";
+@import "../../node_modules/primeflex/themes/saga-blue";
+@import "../../node_modules/katex/dist/katex.css";
+@import "../../node_modules/react-tabs/style/react-tabs.css";
+@import "../../node_modules/react-textarea-markdown-editor/build/TextareaMarkdownEditor";
+
+@import "roboto-font";
+@import "html";
+@import "action-link";
+@import "link";
+@import "modal";
+@import "animated-ellipsis";
+@import "loader";
+@import "latex";
+@import "tabs";
+@import "tab-hint";
+@import "breadcrumbs";
+@import "select";
+@import "table";
+@import "target";
+@import "markdown-editor";
+@import "page";
+
+.viewer-count {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+  background-color: #eee;
+}
+
+.definition,
+.model-notes {
+  @include markdown-editor-mixin;
+}
+
+.model-notes {
+  margin-top: 1em;
+}
+
+.demoted-terms {
+  margin-top: 5px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #666;
+  padding: 0 3px;
+}
+
+// Yellow background colour for term definitions that are flagged.
+.definition.todo {
+  background-color: lightyellow;
+}
+
+// Domain model diagram.
+.domain-model {
+  position: fixed;
+  width: 50%;
+  padding-right: 28px;
+
+  .domain-model-frame {
+    background-color: White;
+    border-radius: 4px;
+    padding: 4px;
+    margin-top: 15px;
+    min-height: 64px;
+    max-height: calc(100vh - #{$header-height + $footer-height} - 100px);
+    overflow: auto;
+
+    img {
+      max-width: unset;
+    }
+  }
+}
+
+// Styling for the list of terms with their definitions.
+ul.term-list {
+  list-style-type: none;
+  padding-left: 0;
+
+  li.term-list-item {
+    dt {
+      padding-left: 16px;
+    }
+
+    dd {
+      padding-left: 40px;
+    }
+  }
+
+  li.term-list-item-disabled {
+    dt b, dd {
+      opacity: 0.25;
+    }
+
+    dt .term-list-item-actions {
+      opacity: 0.5;
+    }
+
+    dd {
+      display: none;
+    }
+  }
+}
+
+// Styling for the list of groups with their descriptions.
+ul.group-list {
+  list-style-type: none;
+  padding-left: 0;
+
+  .group-list-item {
+    dt {
+      padding-left: 16px;
+    }
+
+    dd {
+      padding-left: 40px;
+    }
+  }
+}
+
+// Styling for disabled terms in the list of relations.
+.relation-disabled {
+  list-style-type: none;
+
+  .relations-list-item-name {
+    opacity: 0.15;
+  }
+
+  .relations-list-item-actions {
+    opacity: 0.5;
+  }
+}
+
+// HTML Select option style for disabled terms.
+.list-item-soft-disable {
+  color: grey;
+  font-style: italic;
+}
+
+// Checkboxes in the add & edit term groups popups.
+.group-terms {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 3px;
+  margin-bottom: 12px;
+
+  div,
+  label,
+  input[type="checkbox"] {
+    display: inline;
+  }
+
+  input[type="checkbox"] {
+    margin-left: 6px;
+    margin-right: 4px;
+  }
+
+  div {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 2px;
+    padding: 0 0 0 4px;
+    white-space: nowrap;
+  }
+}

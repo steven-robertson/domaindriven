@@ -1,0 +1,15 @@
+.tab-hint:before {
+  content: 'Hint: ';
+  font-style: italic;
+  color: #999;
+}
+
+.tab-hint {
+  display: inline-block;
+  background-color: #eee;
+  padding: 0 4px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #888;
+  margin-bottom: 14px;
+}
