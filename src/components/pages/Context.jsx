@@ -9,24 +9,24 @@ import {
     reset,
     subscribeToContext,
     unsubscribeFromContext
-} from "../redux/actions/context";
-import Waiting from "./Waiting";
-import DomainModel from "./DomainModel";
-import Terms from "./Terms";
-import Relations from "./Relations";
-import DemotedTerms from "./DemotedTerms";
-import GroupedTerms from "./GroupedTerms";
-import ContextNotes from "./ContextNotes";
-import ModelViewers from "./ModelViewers";
-import ImportTermsAction from "./actions/context/ImportTermsAction";
-import RenameContextAction from "./actions/context/RenameContextAction";
-import RenameModelAction from "./actions/model/RenameModelAction";
-import CloneModelAction from "./actions/model/CloneModelAction";
-import TransferModelAction from "./actions/model/TransferModelAction";
-import RemoveModelAction from "./actions/model/RemoveModelAction";
-import ViewModelBackupsAction from "./actions/model/ViewModelBackupsAction";
-import AddContextAction from "./actions/context/AddContextAction";
-import {sep} from "../constants";
+} from "../../redux/actions/context";
+import Waiting from "../Waiting";
+import DomainModel from "../DomainModel";
+import Terms from "../Terms";
+import Relations from "../Relations";
+import DemotedTerms from "../DemotedTerms";
+import GroupedTerms from "../GroupedTerms";
+import ContextNotes from "../ContextNotes";
+import ModelViewers from "../ModelViewers";
+import ImportTermsAction from "../actions/context/ImportTermsAction";
+import RenameContextAction from "../actions/context/RenameContextAction";
+import RenameModelAction from "../actions/model/RenameModelAction";
+import CloneModelAction from "../actions/model/CloneModelAction";
+import TransferModelAction from "../actions/model/TransferModelAction";
+import RemoveModelAction from "../actions/model/RemoveModelAction";
+import ViewModelBackupsAction from "../actions/model/ViewModelBackupsAction";
+import AddContextAction from "../actions/context/AddContextAction";
+import {sep} from "../../constants";
 
 Context.propTypes = {
     contextId: PropTypes.string

@@ -1,9 +1,9 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {Titled} from "react-titled";
-import AddSpaceAction from "./actions/space/AddSpaceAction";
-import SpaceListTable from "./SpaceListTable";
-import {sep} from "../constants";
+import AddSpaceAction from "../actions/space/AddSpaceAction";
+import SpaceListTable from "../SpaceListTable";
+import {sep} from "../../constants";
 
 export default function SpaceList() {
     const isAdmin = useSelector(state => state?.user.isAdmin);

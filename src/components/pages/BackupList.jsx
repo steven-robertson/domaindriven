@@ -8,19 +8,19 @@ import {
     subscribeToBackupListTotal,
     unsubscribeFromBackupList,
     unsubscribeFromBackupListTotal
-} from "../redux/actions/backupList";
+} from "../../redux/actions/backupList";
 import {
     reset as resetModel,
     subscribeToModel,
     unsubscribeFromModel
-} from "../redux/actions/model";
-import {roundUp} from "../maths";
-import Waiting from "./Waiting";
-import Table from "./Table";
-import FormatRelativeDate from "./FormatRelativeDate";
-import RestoreModelAction from "./actions/model/RestoreModelAction";
-import BackToModelAction from "./actions/model/BackToModelAction";
-import {sep} from "../constants";
+} from "../../redux/actions/model";
+import {roundUp} from "../../maths";
+import Waiting from "../Waiting";
+import Table from "../Table";
+import FormatRelativeDate from "../FormatRelativeDate";
+import RestoreModelAction from "../actions/model/RestoreModelAction";
+import BackToModelAction from "../actions/model/BackToModelAction";
+import {sep} from "../../constants";
 
 export default function BackupList() {
     const {modelId} = useParams();
