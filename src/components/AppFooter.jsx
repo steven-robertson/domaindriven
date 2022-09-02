@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 export default function AppFooter() {
     const copyYear = 2022;
@@ -8,8 +9,9 @@ export default function AppFooter() {
     return (
         <div className="page-footer">
             <div className="copyright-notice">
-                Copyright &copy; {copyRange} <a href="mailto:stever@hey.com">Steven Robertson</a>.
-                All rights reserved.
+                Copyright &copy; {copyRange} <a href="mailto:stever@hey.com">Steven Robertson</a> |{' '}
+                <Link to="/legal/terms-of-use">Terms of Use</Link> |{' '}
+                <Link to="/legal/privacy-policy">Privacy Policy</Link>
             </div>
         </div>
     )
