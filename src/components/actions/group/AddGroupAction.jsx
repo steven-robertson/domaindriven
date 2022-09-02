@@ -25,13 +25,10 @@ export default function AddGroupAction({contextId}) {
     const editorRef = useRef(null);
 
     function setEditorContent(value) {
+        setDescription(value);
         if (editorRef.current) {
             editorRef.current.textareaRef.current.textareaRef.current.value = value;
         }
-    }
-
-    function clearEditor() {
-        setEditorContent('');
     }
 
     const {
@@ -44,6 +41,11 @@ export default function AddGroupAction({contextId}) {
         setValue,
         getValues
     } = useForm();
+
+    function resetForm() {
+        reset();
+        setEditorContent('');
+    }
 
     modalIsOpen ? disableBodyScroll(document, {reserveScrollBarGap: true}) : enableBodyScroll(document);
 
@@ -65,14 +67,12 @@ export default function AddGroupAction({contextId}) {
 
         dispatch(addGroup(contextId, data.name, description, getEnabledTermIds(data)));
 
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
     function onCancel() {
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
