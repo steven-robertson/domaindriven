@@ -23,10 +23,14 @@ export default function EditSpaceInfoAction({spaceId}) {
 
     const editorRef = useRef(null);
 
-    function clearEditor() {
+    function setEditorContent(content) {
         if (editorRef.current) {
-            editorRef.current.textareaRef.current.textareaRef.current.value = '';
+            editorRef.current.textareaRef.current.textareaRef.current.value = content;
         }
+    }
+
+    function clearEditor() {
+        setEditorContent('');
     }
 
     // Reset the form between viewing spaces.

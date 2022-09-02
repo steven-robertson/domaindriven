@@ -23,10 +23,14 @@ export default function AddTermAction({contextId}) {
 
     const editorRef = useRef(null);
 
-    function clearEditor() {
+    function setEditorContent(content) {
         if (editorRef.current) {
-            editorRef.current.textareaRef.current.textareaRef.current.value = '';
+            editorRef.current.textareaRef.current.textareaRef.current.value = content;
         }
+    }
+
+    function clearEditor() {
+        setEditorContent('');
     }
 
     const {
@@ -50,6 +54,7 @@ export default function AddTermAction({contextId}) {
 
     function resetForm() {
         reset();
+        clearEditor();
         setDefinition('');
     }
 
@@ -64,13 +69,11 @@ export default function AddTermAction({contextId}) {
         dispatch(addTerm(contextId, name, getClassName(name), data.todo, definition));
 
         resetForm();
-        clearEditor();
         closeModal();
     }
 
     function onCancel() {
         resetForm();
-        clearEditor();
         closeModal();
     }
 
