@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {useMatch, useNavigate} from "react-router-dom";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
-import ModelList from "./pages/ModelList";
-import SpaceList from "./pages/SpaceList";
+import ModelList from "./ModelList";
+import SpaceList from "./SpaceList";
 
 export default function Home() {
     const navigate = useNavigate();

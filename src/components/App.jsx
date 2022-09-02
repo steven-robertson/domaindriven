@@ -14,7 +14,7 @@ import RequireUserInfo from "./common/RequireUserInfo";
 import Help from "./pages/Help";
 import BackupList from "./pages/BackupList";
 import LockScreen from "./common/LockScreen";
-import Home from "./Home";
+import Home from "./pages/Home";
 import Space from "./pages/Space";
 import Model from "./pages/Model";
 import AppBreadcrumbs from "./AppBreadcrumbs";
