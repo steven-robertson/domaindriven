@@ -42,6 +42,12 @@ export default function AddTermAction({contextId}) {
         clearErrors
     } = useForm();
 
+    function resetForm() {
+        reset();
+        clearEditor();
+        setDefinition('');
+    }
+
     modalIsOpen ? disableBodyScroll(document, {reserveScrollBarGap: true}) : enableBodyScroll(document);
 
     function openModal() {
@@ -50,12 +56,6 @@ export default function AddTermAction({contextId}) {
 
     function closeModal() {
         setModalIsOpen(false);
-    }
-
-    function resetForm() {
-        reset();
-        clearEditor();
-        setDefinition('');
     }
 
     function onSubmit(data) {
