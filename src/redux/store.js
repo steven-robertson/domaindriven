@@ -7,6 +7,7 @@ import {createBrowserHistory} from "history";
 import Constants from "../constants";
 
 // Reducers
+import appReducer from "./reducers/app";
 import backupListReducer from "./reducers/backupList";
 import contextReducer from "./reducers/context";
 import contextListReducer from "./reducers/contextList";
@@ -20,6 +21,7 @@ import subscriberReducer from "./reducers/subscriber";
 import userReducer from "./reducers/user";
 
 // Sagas
+import * as appSagas from "./sagas/app";
 import * as backupListSagas from "./sagas/backupList";
 import * as contextSagas from "./sagas/context";
 import * as contextListSagas from "./sagas/contextList";
@@ -59,6 +61,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
     router: createRouterReducer(history),
+    app: appReducer,
     backupList: backupListReducer,
     context: contextReducer,
     contextList: contextListReducer,
@@ -91,6 +94,7 @@ function collectSagas(file) {
     }
 }
 
+collectSagas(appSagas);
 collectSagas(backupListSagas);
 collectSagas(contextSagas);
 collectSagas(contextListSagas);

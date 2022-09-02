@@ -19,6 +19,8 @@ import Space from "./pages/Space";
 import Model from "./pages/Model";
 import AppBreadcrumbs from "./AppBreadcrumbs";
 import Constants from "../constants";
+import LegalPrivacy from "./pages/LegalPrivacy";
+import LegalTerms from "./pages/LegalTerms";
 
 export default function App() {
     const err = useSelector(state => state?.error.msg);
@@ -55,6 +57,8 @@ export default function App() {
                                     <Route exact path="/models/:modelId/backups" element={<BackupList/>}/>
                                     <Route path="/models/:modelId/*" element={<Model/>}/>
                                     <Route exact path="/help" element={<Help/>}/>
+                                    <Route exact path="/legal/privacy-policy" element={<LegalPrivacy/>}/>
+                                    <Route exact path="/legal/terms-of-use" element={<LegalTerms/>}/>
                                     <Route path="*" element={<ErrorNotFound/>}/>
                                 </Routes>
                             </ErrorBoundary>

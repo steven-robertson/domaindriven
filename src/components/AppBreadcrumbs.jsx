@@ -100,6 +100,10 @@ export default function AppBreadcrumbs() {
         items.push({label: 'Home', to: '/'});
         if (match('/help')) {
             items.push({label: 'Help', to: '/help'});
+        } else if (match('/legal/privacy-policy')) {
+            items.push({label: 'Privacy Policy', to: '/legal/privacy-policy'});
+        } else if (match('/legal/terms-of-use')) {
+            items.push({label: 'Terms of Use', to: '/legal/terms-of-use'});
         } else if (match('/spaces/')) {
             items.push({label: 'Spaces', to: '/spaces/'});
         } else if (m = match('/spaces/:spaceId')) {
