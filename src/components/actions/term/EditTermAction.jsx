@@ -31,10 +31,6 @@ export default function EditTermAction({termId}) {
         }
     }
 
-    function clearEditor() {
-        setEditorContent('');
-    }
-
     const term = termsLookup[termId];
 
     useEffect(() => {
@@ -50,10 +46,14 @@ export default function EditTermAction({termId}) {
         clearErrors
     } = useForm();
 
+    function resetForm() {
+        reset();
+        setEditorContent('');
+    }
+
     // Reset the form between viewing terms.
     useEffect(() => {
-        reset();
-        clearEditor();
+        resetForm();
     }, [termId]);
 
     modalIsOpen ? disableBodyScroll(document, {reserveScrollBarGap: true}) : enableBodyScroll(document);
@@ -76,16 +76,14 @@ export default function EditTermAction({termId}) {
 
         dispatch(editTerm(termId, name, getClassName(name), data.todo, definition));
 
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
     function onCancel() {
         setDefinition(term.definition);
 
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 

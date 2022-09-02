@@ -29,16 +29,6 @@ export default function EditSpaceInfoAction({spaceId}) {
         }
     }
 
-    function clearEditor() {
-        setEditorContent('');
-    }
-
-    // Reset the form between viewing spaces.
-    useEffect(() => {
-        reset();
-        clearEditor();
-    }, [spaceId]);
-
     useEffect(() => {
         setInfo(modelNotes);
     }, [modelNotes]);
@@ -52,10 +42,14 @@ export default function EditSpaceInfoAction({spaceId}) {
         clearErrors
     } = useForm();
 
-    // Reset the form between viewing terms.
-    useEffect(() => {
+    function resetForm() {
         reset();
-        clearEditor();
+        setEditorContent('');
+    }
+
+    // Reset the form between viewing spaces.
+    useEffect(() => {
+        resetForm();
     }, [spaceId]);
 
     modalIsOpen ? disableBodyScroll(document, {reserveScrollBarGap: true}) : enableBodyScroll(document);
@@ -71,14 +65,12 @@ export default function EditSpaceInfoAction({spaceId}) {
     function onSubmit(/*data*/) {
         dispatch(editInfo(spaceId, info));
 
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
     function onCancel() {
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 

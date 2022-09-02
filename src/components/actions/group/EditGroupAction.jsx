@@ -32,10 +32,6 @@ export default function EditGroupAction({groupId}) {
         }
     }
 
-    function clearEditor() {
-        setEditorContent('');
-    }
-
     const {
         register,
         handleSubmit,
@@ -47,10 +43,14 @@ export default function EditGroupAction({groupId}) {
         getValues
     } = useForm();
 
+    function resetForm() {
+        reset();
+        setEditorContent('');
+    }
+
     // Reset the form between viewing groups.
     useEffect(() => {
-        reset();
-        clearEditor();
+        resetForm();
     }, [groupId]);
 
     const group = groupsLookup[groupId];
@@ -79,14 +79,12 @@ export default function EditGroupAction({groupId}) {
 
         dispatch(editGroup(groupId, data.name, description, getEnabledTermIds(data)));
 
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
     function onCancel() {
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 

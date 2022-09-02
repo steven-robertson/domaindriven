@@ -29,16 +29,6 @@ export default function EditContextNotesAction({contextId}) {
         }
     }
 
-    function clearEditor() {
-        setEditorContent('');
-    }
-
-    // Reset the form between viewing contexts.
-    useEffect(() => {
-        reset();
-        clearEditor();
-    }, [contextId]);
-
     useEffect(() => {
         setNotes(modelNotes);
     }, [modelNotes]);
@@ -52,10 +42,14 @@ export default function EditContextNotesAction({contextId}) {
         clearErrors
     } = useForm();
 
-    // Reset the form between viewing terms.
-    useEffect(() => {
+    function resetForm() {
         reset();
-        clearEditor();
+        setEditorContent('');
+    }
+
+    // Reset the form between viewing contexts.
+    useEffect(() => {
+        resetForm();
     }, [contextId]);
 
     modalIsOpen ? disableBodyScroll(document, {reserveScrollBarGap: true}) : enableBodyScroll(document);
@@ -71,14 +65,12 @@ export default function EditContextNotesAction({contextId}) {
     function onSubmit(/*data*/) {
         dispatch(editNotes(contextId, notes));
 
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
     function onCancel() {
-        reset();
-        clearEditor();
+        resetForm();
         closeModal();
     }
 
