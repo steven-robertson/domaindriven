@@ -48,6 +48,11 @@ export default function AddTermAction({contextId}) {
         setModalIsOpen(false);
     }
 
+    function resetForm() {
+        reset();
+        setDefinition('');
+    }
+
     function onSubmit(data) {
         const name = data.name.trim();
 
@@ -58,13 +63,13 @@ export default function AddTermAction({contextId}) {
 
         dispatch(addTerm(contextId, name, getClassName(name), data.todo, definition));
 
-        reset();
+        resetForm();
         clearEditor();
         closeModal();
     }
 
     function onCancel() {
-        reset();
+        resetForm();
         clearEditor();
         closeModal();
     }
