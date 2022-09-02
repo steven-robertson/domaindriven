@@ -10,7 +10,7 @@ import {
     subscribeToContext,
     unsubscribeFromContext
 } from "../../redux/actions/context";
-import Waiting from "../Waiting";
+import Waiting from "../common/Waiting";
 import DomainModel from "../DomainModel";
 import Terms from "../Terms";
 import Relations from "../Relations";

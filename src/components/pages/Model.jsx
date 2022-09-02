@@ -9,7 +9,7 @@ import {
     viewRemove,
     viewUpsert
 } from "../../redux/actions/model";
-import Waiting from "../Waiting";
+import Waiting from "../common/Waiting";
 import ContextMapping from "./ContextMapping";
 import PropTypes from "prop-types";
 import BackupList from "./BackupList";

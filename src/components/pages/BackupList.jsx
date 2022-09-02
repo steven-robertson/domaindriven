@@ -15,8 +15,8 @@ import {
     unsubscribeFromModel
 } from "../../redux/actions/model";
 import {roundUp} from "../../maths";
-import Waiting from "../Waiting";
-import Table from "../Table";
+import Waiting from "../common/Waiting";
+import Table from "../common/Table";
 import FormatRelativeDate from "../FormatRelativeDate";
 import RestoreModelAction from "../actions/model/RestoreModelAction";
 import BackToModelAction from "../actions/model/BackToModelAction";

@@ -9,7 +9,7 @@ import {
     unsubscribeFromSpaceList,
     unsubscribeFromSpaceListTotal
 } from "../redux/actions/spaceList";
-import Table from "./Table";
+import Table from "./common/Table";
 import FormatRelativeDate from "./FormatRelativeDate";
 
 export default function SpaceListTable() {

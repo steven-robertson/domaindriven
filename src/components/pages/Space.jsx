@@ -11,7 +11,7 @@ import {
     subscribeToSpace,
     unsubscribeFromSpace
 } from "../../redux/actions/space";
-import Waiting from "../Waiting";
+import Waiting from "../common/Waiting";
 import SpaceModelList from "../SpaceModelList";
 import SpaceInfo from "../SpaceInfo";
 import {sep} from "../../constants";

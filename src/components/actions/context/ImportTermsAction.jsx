@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import Table from "../../Table";
+import Table from "../../common/Table";
 import FormatRelativeDate from "../../FormatRelativeDate";
 import {roundUp} from "../../../maths";
 import {getEnabledTermIds, setTermsEnabled} from "../group/AddGroupAction";
