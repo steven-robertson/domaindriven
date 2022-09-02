@@ -23,14 +23,11 @@ export default function AddTermAction({contextId}) {
 
     const editorRef = useRef(null);
 
-    function setEditorContent(content) {
+    function setEditorContent(value) {
+        setDefinition('');
         if (editorRef.current) {
-            editorRef.current.textareaRef.current.textareaRef.current.value = content;
+            editorRef.current.textareaRef.current.textareaRef.current.value = value;
         }
-    }
-
-    function clearEditor() {
-        setEditorContent('');
     }
 
     const {
@@ -44,8 +41,7 @@ export default function AddTermAction({contextId}) {
 
     function resetForm() {
         reset();
-        clearEditor();
-        setDefinition('');
+        setEditorContent('');
     }
 
     modalIsOpen ? disableBodyScroll(document, {reserveScrollBarGap: true}) : enableBodyScroll(document);
