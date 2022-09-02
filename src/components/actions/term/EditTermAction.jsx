@@ -25,9 +25,9 @@ export default function EditTermAction({termId}) {
 
     const editorRef = useRef(null);
 
-    function setEditorContent(content) {
+    function setEditorContent(value) {
         if (editorRef.current) {
-            editorRef.current.textareaRef.current.textareaRef.current.value = content;
+            editorRef.current.textareaRef.current.textareaRef.current.value = value;
         }
     }
 
