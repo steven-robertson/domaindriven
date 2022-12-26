@@ -1,9 +1,7 @@
 /.graphqlconfig
-/.idea/
 /cypress/fixtures/example.json
 /cypress/screenshots/
 /cypress/support/commands.js
 /cypress/videos/
-/node_modules/
 /public/dist/
 /schema.graphql

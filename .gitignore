@@ -1,0 +1,6 @@
+.env
+.graphqlconfig
+.idea/
+.turbo/
+/apps/web/es5/
+node_modules/
