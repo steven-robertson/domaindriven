@@ -1,5 +1,5 @@
 FROM caddy:2 AS base
-COPY Caddyfile /etc/caddy/Caddyfile
+COPY apps/web/Caddyfile /etc/caddy/Caddyfile
 
 FROM node:19 AS npmbuild
 WORKDIR /project
