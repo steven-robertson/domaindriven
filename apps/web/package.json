@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "run-s copyfiles serve",
     "test": "jest",
-    "build": "esbuild src/index.jsx --bundle --outfile=public/dist/bundle.js --minify --define:DEBUG=false",
+    "build": "run-s sass copyfiles build:bundle",
+    "build:bundle": "esbuild src/index.jsx --bundle --outfile=public/dist/bundle.js --minify --define:DEBUG=false",
     "copyfiles": "copyfiles \"../../node_modules/katex/dist/fonts/**/*\" -u 3 public/dist",
     "sass": "sass src/style/bundle.scss public/dist/bundle.css --style compressed --no-source-map",
     "serve": "run-p watch:build watch:sass watch:serve",
