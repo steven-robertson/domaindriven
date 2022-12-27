@@ -8,6 +8,6 @@ cd $(dirname "$0")
 
 # Apply seeds
 cd ./seeds/default/
-hasura seed apply --database-name default --file *_user_seed.sql
 hasura seed apply --database-name default --file *_space_seed.sql
+hasura seed apply --database-name default --file *_user_seed.sql
 hasura seed apply --database-name default --file *_user_space_seed.sql

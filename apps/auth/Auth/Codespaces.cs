@@ -14,7 +14,7 @@ public static class Codespaces
             return null;
         }
 
-        const int port = 8000; // NOTE: Port number is hard-coded.
+        const int port = 8080; // NOTE: Port number is hard-coded.
         return $"https://{codespaceName}-{port}.{forwardingDomain}";
     }
 
