@@ -23,7 +23,7 @@ export DD_GRAPHQLAPI_URL=http://${MY_HOSTNAME}:4000/v1/graphql
 docker compose up --build -d
 
 # Wait for Hasura to start
-bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8080/healthz)" != "200" ]]; do sleep 5; done'
+bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:4000/healthz)" != "200" ]]; do sleep 5; done'
 
 # Apply the seeds
 ./hasura/seed.sh
