@@ -3,6 +3,6 @@
 Add a `.env` file with the following content:
 
 ```bash
-HASURA_JWT_DEFAULT_ROLE="acctsim-user"
+HASURA_JWT_DEFAULT_ROLE="domaindriven-user"
 AUTH_SESSION_JWT_SECRET="<secret>"
 ```
