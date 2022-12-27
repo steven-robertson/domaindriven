@@ -1,0 +1,15 @@
+mutation (
+    $context_id: uuid!,
+    $from_term_id: uuid!,
+    $to_term_id: uuid!,
+    $from_multiplier_id: uuid!,
+    $to_multiplier_id: uuid!) {
+    insert_relation_one(object: {
+        context_id: $context_id,
+        from_term_id: $from_term_id,
+        to_term_id: $to_term_id,
+        from_multiplier_id: $from_multiplier_id,
+        to_multiplier_id: $to_multiplier_id}) {
+        relation_id
+    }
+}

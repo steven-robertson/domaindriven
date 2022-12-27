@@ -1,0 +1,5 @@
+query ($group_id: uuid!) {
+    group_by_pk(group_id: $group_id) {
+        context_id
+    }
+}

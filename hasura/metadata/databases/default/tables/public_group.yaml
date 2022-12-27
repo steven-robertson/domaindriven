@@ -1,0 +1,91 @@
+table:
+  name: group
+  schema: public
+object_relationships:
+  - name: context
+    using:
+      foreign_key_constraint_on: context_id
+array_relationships:
+  - name: group_terms
+    using:
+      foreign_key_constraint_on:
+        column: group_id
+        table:
+          name: group_term
+          schema: public
+insert_permissions:
+  - role: domaindriven-user
+    permission:
+      check:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+      columns:
+        - context_id
+        - description
+        - name
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - description
+        - name
+        - created_at
+        - context_id
+        - group_id
+      filter:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+update_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - description
+        - name
+      filter:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+      check: null
+delete_permissions:
+  - role: domaindriven-user
+    permission:
+      filter:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+event_triggers:
+  - name: group_changed
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: DD_EVENT_CALLBACK_MODEL_CHANGED
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

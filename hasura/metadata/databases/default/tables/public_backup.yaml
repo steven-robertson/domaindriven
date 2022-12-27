@@ -1,0 +1,31 @@
+table:
+  name: backup
+  schema: public
+object_relationships:
+  - name: model
+    using:
+      foreign_key_constraint_on: model_id
+  - name: space
+    using:
+      foreign_key_constraint_on: space_id
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - model_json
+        - model_name
+        - space_name
+        - created_at
+        - backup_id
+        - model_id
+        - space_id
+        - user_id
+      filter:
+        space:
+          user_spaces:
+            user_id:
+              _eq: X-Hasura-User-Id
+      allow_aggregations: true

@@ -1,0 +1,17 @@
+mutation (
+    $context_id: uuid!,
+    $name: String!,
+    $classname: String!,
+    $definition: String!,
+    $todo: Boolean!,
+    $enabled: Boolean!) {
+    insert_term_one(object: {
+        context_id: $context_id,
+        name: $name,
+        classname: $classname,
+        definition: $definition,
+        todo: $todo,
+        enabled: $enabled}) {
+        term_id
+    }
+}

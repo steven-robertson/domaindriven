@@ -1,0 +1,5 @@
+mutation ($user_id: uuid!, $space_id: uuid!) {
+    update_user_by_pk(pk_columns: {user_id: $user_id}, _set: {personal_space_id: $space_id}) {
+        personal_space_id
+    }
+}

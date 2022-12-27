@@ -1,0 +1,5 @@
+mutation ($user_id: uuid!, $space_id: uuid!) {
+    insert_user_space_one(object: {user_id: $user_id, space_id: $space_id}) {
+        user_id
+    }
+}

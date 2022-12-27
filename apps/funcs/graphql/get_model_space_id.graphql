@@ -1,0 +1,5 @@
+query ($model_id: uuid!) {
+    model_by_pk(model_id: $model_id) {
+        space_id
+    }
+}

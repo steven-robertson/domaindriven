@@ -1,0 +1,13 @@
+mutation (
+    $user_id: uuid,
+    $table_name: String!,
+    $op: String!,
+    $json_data: String!) {
+    insert_audit_one(object: {
+        user_id: $user_id,
+        table_name: $table_name,
+        op: $op,
+        json_data: $json_data}) {
+        audit_id
+    }
+}

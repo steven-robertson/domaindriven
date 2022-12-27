@@ -1,0 +1,24 @@
+actions:
+  - name: clone
+    definition:
+      kind: ""
+      handler: http://functions/clone/
+      forward_client_headers: true
+      timeout: 180
+    permissions:
+      - role: domaindriven-user
+  - name: restore
+    definition:
+      kind: ""
+      handler: http://functions/restore/
+      forward_client_headers: true
+      timeout: 180
+    permissions:
+      - role: domaindriven-user
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+    - name: CloneResult
+    - name: RestoreResult
+  scalars: []

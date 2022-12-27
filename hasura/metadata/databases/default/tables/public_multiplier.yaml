@@ -1,0 +1,26 @@
+table:
+  name: multiplier
+  schema: public
+array_relationships:
+  - name: relationsByFromMultiplierId
+    using:
+      foreign_key_constraint_on:
+        column: from_multiplier_id
+        table:
+          name: relation
+          schema: public
+  - name: relationsByToMultiplierId
+    using:
+      foreign_key_constraint_on:
+        column: to_multiplier_id
+        table:
+          name: relation
+          schema: public
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - symbol
+        - created_at
+        - multiplier_id
+      filter: {}

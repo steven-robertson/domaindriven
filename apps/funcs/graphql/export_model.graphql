@@ -1,0 +1,62 @@
+query ($model_id: uuid!) {
+    model_by_pk(model_id: $model_id) {
+        model_id
+        name
+        created_at
+        updated_model {
+            updated_at
+        }
+        space {
+            space_id
+            name
+        }
+        contexts {
+            context_id
+            name
+            notes
+            terms {
+                term_id
+                name
+                classname
+                created_at
+                definition
+                todo
+                enabled
+            }
+            groups {
+                group_id
+                name
+                description
+                group_terms {
+                    term {
+                        term_id
+                        name
+                    }
+                }
+            }
+            relations {
+                relation_id
+                from_term_id
+                to_term_id
+                created_at
+                from_multiplier_id
+                to_multiplier_id
+                multiplierByFromMultiplierId {
+                    symbol
+                }
+                multiplierByToMultiplierId {
+                    symbol
+                }
+            }
+            demoteds {
+                term_id
+                demoted_name
+            }
+        }
+        connections {
+            connection_id
+            from_context_id
+            to_context_id
+        }
+    }
+}

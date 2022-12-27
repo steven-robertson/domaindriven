@@ -1,0 +1,25 @@
+table:
+  name: text
+  schema: public
+select_permissions:
+  - role: domaindriven-admin
+    permission:
+      columns:
+        - lang
+        - name
+        - text
+      filter: {}
+  - role: domaindriven-user
+    permission:
+      columns:
+        - lang
+        - name
+        - text
+      filter: {}
+  - role: public
+    permission:
+      columns:
+        - lang
+        - name
+        - text
+      filter: {}

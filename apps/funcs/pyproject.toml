@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "domaindriven-funcs"
+version = "0.1.0"
+description = ""
+authors = ["Steven Robertson <stever@hey.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiofiles = "^0.8.0"
+fastapi = "^0.61.2"
+uvicorn = "^0.12.3"
+requests = "^2.26.0"
+requests-futures = "^1.0.0"
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

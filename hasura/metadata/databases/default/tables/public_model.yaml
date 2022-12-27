@@ -1,0 +1,110 @@
+table:
+  name: model
+  schema: public
+object_relationships:
+  - name: space
+    using:
+      foreign_key_constraint_on: space_id
+  - name: updated_model
+    using:
+      foreign_key_constraint_on:
+        column: model_id
+        table:
+          name: updated_model
+          schema: public
+array_relationships:
+  - name: backups
+    using:
+      foreign_key_constraint_on:
+        column: model_id
+        table:
+          name: backup
+          schema: public
+  - name: connections
+    using:
+      foreign_key_constraint_on:
+        column: model_id
+        table:
+          name: connection
+          schema: public
+  - name: contexts
+    using:
+      foreign_key_constraint_on:
+        column: model_id
+        table:
+          name: context
+          schema: public
+  - name: model_viewers
+    using:
+      foreign_key_constraint_on:
+        column: model_id
+        table:
+          name: model_viewer
+          schema: public
+insert_permissions:
+  - role: domaindriven-user
+    permission:
+      check:
+        space:
+          user_spaces:
+            user_id:
+              _eq: X-Hasura-User-Id
+      columns:
+        - name
+        - space_id
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - model_id
+        - name
+        - created_at
+        - space_id
+      filter:
+        space:
+          user_spaces:
+            user_id:
+              _eq: X-Hasura-User-Id
+      allow_aggregations: true
+update_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - name
+        - space_id
+      filter:
+        space:
+          user_spaces:
+            user_id:
+              _eq: X-Hasura-User-Id
+      check: null
+delete_permissions:
+  - role: domaindriven-user
+    permission:
+      filter:
+        space:
+          user_spaces:
+            user_id:
+              _eq: X-Hasura-User-Id
+event_triggers:
+  - name: model_changed
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: DD_EVENT_CALLBACK_MODEL_CHANGED
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

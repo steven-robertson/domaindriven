@@ -1,0 +1,24 @@
+type Query {
+  clone(
+    model_id: uuid!
+    name: String!
+    space_id: uuid!
+  ): CloneResult
+}
+
+type Query {
+  restore(
+    backup_id: uuid!
+    name: String!
+    space_id: uuid!
+  ): RestoreResult
+}
+
+type CloneResult {
+  model_id: uuid!
+}
+
+type RestoreResult {
+  model_id: uuid!
+}
+

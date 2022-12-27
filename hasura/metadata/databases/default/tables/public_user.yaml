@@ -1,0 +1,86 @@
+table:
+  name: user
+  schema: public
+object_relationships:
+  - name: space
+    using:
+      foreign_key_constraint_on: personal_space_id
+array_relationships:
+  - name: audits
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: audit
+          schema: public
+  - name: backups
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: backup
+          schema: public
+  - name: model_viewers
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: model_viewer
+          schema: public
+  - name: sessions
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: session
+          schema: public
+  - name: user_roles
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_role
+          schema: public
+  - name: user_spaces
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_space
+          schema: public
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - created_at
+        - name
+        - personal_space_id
+        - user_id
+      filter:
+        _or:
+          - user_id:
+              _eq: X-Hasura-User-Id
+          - user_spaces:
+              space:
+                user_spaces:
+                  user_id:
+                    _eq: X-Hasura-User-Id
+      allow_aggregations: true
+event_triggers:
+  - name: new_user
+    definition:
+      enable_manual: false
+      insert:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: DD_EVENT_CALLBACK_NEW_USER
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

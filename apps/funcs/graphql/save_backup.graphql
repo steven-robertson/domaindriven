@@ -1,0 +1,17 @@
+mutation (
+    $model_json: String!,
+    $model_name: String!,
+    $model_id: uuid!,
+    $space_name: String!,
+    $space_id: uuid!,
+    $user_id: uuid!) {
+    insert_backup_one(object: {
+        model_json: $model_json,
+        model_name: $model_name,
+        model_id: $model_id,
+        space_name: $space_name,
+        space_id: $space_id,
+        user_id: $user_id}) {
+        backup_id
+    }
+}

@@ -1,0 +1,53 @@
+{
+	security {
+		authorization policy mypolicy {
+			set auth url /auth/
+			crypto key verify {env.AUTH_SESSION_JWT_SECRET}
+			crypto key token name access_token
+			allow roles {env.HASURA_JWT_DEFAULT_ROLE}
+			set token sources cookie
+		}
+	}
+}
+
+:8080 {
+	redir /auth /auth/
+	handle /auth/* {
+		uri strip_prefix /auth
+		reverse_proxy localhost:5000
+	}
+
+	redir /api /api/
+	handle /api/* {
+		uri strip_prefix /api
+		reverse_proxy localhost:4000
+	}
+
+	@allowed {
+		path /site.webmanifest
+		path /assets/logo/*
+	}
+
+	handle @allowed {
+		reverse_proxy localhost:8000
+	}
+
+    @plantuml {
+        path /plantuml/img/*
+        path /plantuml/map/*
+        path /plantuml/png/*
+        path /plantuml/svg/*
+        path /plantuml/txt/*
+    }
+
+    route @plantuml {
+        authorize with mypolicy
+        uri strip_prefix /plantuml
+        reverse_proxy localhost:3000
+    }
+
+	route {
+		authorize with mypolicy
+		reverse_proxy localhost:8000
+	}
+}

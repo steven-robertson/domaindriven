@@ -1,0 +1,5 @@
+query ($context_id: uuid!) {
+    context_by_pk(context_id: $context_id) {
+        model_id
+    }
+}

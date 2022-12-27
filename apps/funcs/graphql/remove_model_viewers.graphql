@@ -1,0 +1,5 @@
+mutation ($updated_at: timestamptz!) {
+  delete_model_viewer(where: {updated_at: {_lt: $updated_at}}) {
+    affected_rows
+  }
+}

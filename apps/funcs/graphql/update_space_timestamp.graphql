@@ -1,0 +1,13 @@
+mutation ($space_id: uuid!, $updated_at: timestamptz!) {
+    insert_updated_space_one(
+        object: {
+            space_id: $space_id,
+            updated_at: $updated_at
+        },
+        on_conflict: {
+            constraint: updated_space_pkey,
+            update_columns: [space_id, updated_at]
+        }) {
+        updated_at
+    }
+}

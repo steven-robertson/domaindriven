@@ -1,0 +1,56 @@
+version: '3'
+services:
+
+  postgres:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+
+  graphql-engine:
+    image: hasura/graphql-engine:latest.cli-migrations-v3
+    restart: always
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - 4000:8080
+    volumes:
+      - ./hasura/metadata:/hasura-metadata
+      - ./hasura/migrations:/hasura-migrations
+    environment:
+      HASURA_GRAPHQL_METADATA_DIR: /hasura-metadata
+      HASURA_GRAPHQL_MIGRATIONS_DIR: /hasura-migrations
+      HASURA_GRAPHQL_DATABASE_URL: ${HASURA_DATABASE_URL}
+      HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_ADMIN_SECRET}
+      HASURA_GRAPHQL_JWT_SECRET: '{"type": "HS256", "key": "${HASURA_JWT_SECRET}", "audience": "${HASURA_JWT_AUDIENCE}", "issuer": "${HASURA_JWT_ISSUER}"}'
+      HASURA_GRAPHQL_ENABLE_CONSOLE: ${HASURA_ENABLE_CONSOLE}
+      HASURA_GRAPHQL_DEV_MODE: ${HASURA_GRAPHQL_DEV_MODE}
+      HASURA_GRAPHQL_PG_CONNECTIONS: 4
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: public
+      DD_FUNCS_BASE_URL: ${DD_FUNCS_BASE_URL}
+      DD_EVENT_CALLBACK_NEW_USER: ${DD_FUNCS_BASE_URL}/new_user/
+      DD_EVENT_CALLBACK_NEW_SPACE: ${DD_FUNCS_BASE_URL}/new_space/
+      DD_EVENT_CALLBACK_MODEL_CHANGED: ${DD_FUNCS_BASE_URL}/model_changed/
+    command:
+      - graphql-engine
+      - serve
+
+  plantuml:
+    image: plantuml/plantuml-server:jetty
+    restart: always
+    ports:
+      - 3000:8080
+
+volumes:
+  pg_data:

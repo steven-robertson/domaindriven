@@ -1,0 +1,5 @@
+query ($backup_id: uuid!) {
+    backup_by_pk(backup_id: $backup_id) {
+        model_json
+    }
+}

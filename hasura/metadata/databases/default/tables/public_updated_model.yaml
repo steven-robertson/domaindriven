@@ -1,0 +1,19 @@
+table:
+  name: updated_model
+  schema: public
+object_relationships:
+  - name: model
+    using:
+      foreign_key_constraint_on: model_id
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - updated_at
+        - model_id
+      filter:
+        model:
+          space:
+            user_spaces:
+              user_id:
+                _eq: X-Hasura-User-Id

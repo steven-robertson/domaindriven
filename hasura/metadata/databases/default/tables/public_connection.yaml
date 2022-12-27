@@ -1,0 +1,85 @@
+table:
+  name: connection
+  schema: public
+object_relationships:
+  - name: contextByFromContextId
+    using:
+      foreign_key_constraint_on: from_context_id
+  - name: contextByToContextId
+    using:
+      foreign_key_constraint_on: to_context_id
+  - name: model
+    using:
+      foreign_key_constraint_on: model_id
+insert_permissions:
+  - role: domaindriven-user
+    permission:
+      check:
+        model:
+          space:
+            user_spaces:
+              user_id:
+                _eq: X-Hasura-User-Id
+      columns:
+        - from_context_id
+        - model_id
+        - to_context_id
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - created_at
+        - connection_id
+        - from_context_id
+        - model_id
+        - to_context_id
+      filter:
+        model:
+          space:
+            user_spaces:
+              user_id:
+                _eq: X-Hasura-User-Id
+update_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - from_context_id
+        - to_context_id
+      filter:
+        model:
+          space:
+            user_spaces:
+              user_id:
+                _eq: X-Hasura-User-Id
+      check: null
+delete_permissions:
+  - role: domaindriven-user
+    permission:
+      filter:
+        model:
+          space:
+            user_spaces:
+              user_id:
+                _eq: X-Hasura-User-Id
+event_triggers:
+  - name: connection_changed
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: DD_EVENT_CALLBACK_MODEL_CHANGED
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

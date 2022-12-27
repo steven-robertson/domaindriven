@@ -1,0 +1,5 @@
+mutation ($name: String!) {
+    insert_space_one(object: {name: $name}) {
+        space_id
+    }
+}

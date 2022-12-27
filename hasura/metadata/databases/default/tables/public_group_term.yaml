@@ -1,0 +1,71 @@
+table:
+  name: group_term
+  schema: public
+object_relationships:
+  - name: group
+    using:
+      foreign_key_constraint_on: group_id
+  - name: term
+    using:
+      foreign_key_constraint_on: term_id
+insert_permissions:
+  - role: domaindriven-user
+    permission:
+      check:
+        group:
+          context:
+            model:
+              space:
+                user_spaces:
+                  user_id:
+                    _eq: X-Hasura-User-Id
+      columns:
+        - group_id
+        - term_id
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - group_id
+        - term_id
+      filter:
+        group:
+          context:
+            model:
+              space:
+                user_spaces:
+                  user_id:
+                    _eq: X-Hasura-User-Id
+delete_permissions:
+  - role: domaindriven-user
+    permission:
+      filter:
+        group:
+          context:
+            model:
+              space:
+                user_spaces:
+                  user_id:
+                    _eq: X-Hasura-User-Id
+event_triggers:
+  - name: group_term_changed
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: DD_EVENT_CALLBACK_MODEL_CHANGED
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

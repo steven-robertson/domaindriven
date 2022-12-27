@@ -1,0 +1,11 @@
+mutation (
+    $context_id: uuid!,
+    $name: String!,
+    $description: String!) {
+    insert_group_one(object: {
+        context_id: $context_id,
+        name: $name,
+        description: $description}) {
+        group_id
+    }
+}

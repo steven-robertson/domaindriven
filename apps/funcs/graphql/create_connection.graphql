@@ -1,0 +1,11 @@
+mutation (
+    $model_id: uuid!,
+    $from_context_id: uuid!,
+    $to_context_id: uuid!) {
+    insert_connection_one(object: {
+        model_id: $model_id,
+        from_context_id: $from_context_id,
+        to_context_id: $to_context_id}) {
+        connection_id
+    }
+}

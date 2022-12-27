@@ -1,0 +1,13 @@
+mutation ($model_id: uuid!, $updated_at: timestamptz!) {
+    insert_updated_model_one(
+        object: {
+            model_id: $model_id,
+            updated_at: $updated_at
+        },
+        on_conflict: {
+            constraint: updated_model_pkey,
+            update_columns: [model_id, updated_at]
+        }) {
+        updated_at
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "name": "funcs",
+    "private": true,
+    "scripts": {
+      "dev": "poetry install && poetry run uvicorn app.main:app --reload --host ${MY_HOSTNAME} --port 8001"
+    }
+  }
+  

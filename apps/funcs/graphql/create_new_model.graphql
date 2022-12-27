@@ -1,0 +1,5 @@
+mutation ($name: String!, $space_id: uuid!) {
+    insert_model_one(object: {name: $name, space_id: $space_id}) {
+        model_id
+    }
+}

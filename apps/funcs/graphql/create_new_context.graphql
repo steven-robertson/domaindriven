@@ -1,0 +1,5 @@
+mutation ($name: String!, $notes: String!, $model_id: uuid!) {
+    insert_context_one(object: {name: $name, notes: $notes, model_id: $model_id}) {
+        context_id
+    }
+}

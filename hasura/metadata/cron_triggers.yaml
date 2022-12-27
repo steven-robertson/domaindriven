@@ -1,0 +1,5 @@
+- name: remove_model_viewers
+  webhook: http://functions/remove_model_viewers/
+  schedule: '* * * * *'
+  include_in_metadata: true
+  payload: {}

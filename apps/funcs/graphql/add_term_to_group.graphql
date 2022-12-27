@@ -1,0 +1,9 @@
+mutation (
+    $term_id: uuid!,
+    $group_id: uuid!) {
+    insert_group_term_one(object: {
+        term_id: $term_id,
+        group_id: $group_id}) {
+        group_id
+    }
+}

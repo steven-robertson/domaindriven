@@ -1,0 +1,121 @@
+table:
+  name: term
+  schema: public
+object_relationships:
+  - name: context
+    using:
+      foreign_key_constraint_on: context_id
+array_relationships:
+  - name: demoteds
+    using:
+      foreign_key_constraint_on:
+        column: term_id
+        table:
+          name: demoted
+          schema: public
+  - name: group_terms
+    using:
+      foreign_key_constraint_on:
+        column: term_id
+        table:
+          name: group_term
+          schema: public
+  - name: relationsByFromTerm
+    using:
+      foreign_key_constraint_on:
+        column: from_term_id
+        table:
+          name: relation
+          schema: public
+  - name: relationsByToTerm
+    using:
+      foreign_key_constraint_on:
+        column: to_term_id
+        table:
+          name: relation
+          schema: public
+insert_permissions:
+  - role: domaindriven-user
+    permission:
+      check:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+      columns:
+        - classname
+        - context_id
+        - definition
+        - enabled
+        - name
+        - todo
+select_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - enabled
+        - todo
+        - classname
+        - definition
+        - name
+        - created_at
+        - context_id
+        - term_id
+      filter:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+update_permissions:
+  - role: domaindriven-user
+    permission:
+      columns:
+        - classname
+        - definition
+        - enabled
+        - name
+        - todo
+      filter:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+      check: null
+delete_permissions:
+  - role: domaindriven-user
+    permission:
+      filter:
+        context:
+          model:
+            space:
+              user_spaces:
+                user_id:
+                  _eq: X-Hasura-User-Id
+event_triggers:
+  - name: term_changed
+    definition:
+      delete:
+        columns: '*'
+      enable_manual: false
+      insert:
+        columns: '*'
+      update:
+        columns: '*'
+    retry_conf:
+      interval_sec: 10
+      num_retries: 0
+      timeout_sec: 60
+    webhook_from_env: DD_EVENT_CALLBACK_MODEL_CHANGED
+    cleanup_config:
+      batch_size: 10000
+      clean_invocation_logs: false
+      clear_older_than: 168
+      paused: true
+      schedule: 0 0 * * *
+      timeout: 60

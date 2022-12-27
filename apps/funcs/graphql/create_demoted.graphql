@@ -1,0 +1,11 @@
+mutation (
+    $context_id: uuid!,
+    $demoted_name: String!,
+    $term_id: uuid!) {
+    insert_demoted_one(object: {
+        context_id: $context_id,
+        demoted_name: $demoted_name,
+        term_id: $term_id}) {
+        demoted_id
+    }
+}
