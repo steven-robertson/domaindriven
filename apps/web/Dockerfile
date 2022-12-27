@@ -3,7 +3,7 @@ COPY Caddyfile /etc/caddy/Caddyfile
 
 FROM node:19 AS npmbuild
 WORKDIR /project
-COPY ../.. .
+COPY . .
 RUN npm install
 RUN npm run build
 
