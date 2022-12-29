@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import {Provider as ReduxProvider} from "react-redux";
 import {ReduxRouter as Router} from "@lagunovsky/redux-react-router";
 import Modal from 'react-modal';
@@ -19,8 +19,5 @@ const element = (
     </ReduxProvider>
 );
 
-ReactDOM.render(element, container);
-
-// import {createRoot} from "react-dom/client";
-// const root = createRoot(container);
-// root.render(element);
+const root = ReactDOM.createRoot(container);
+root.render(element);
