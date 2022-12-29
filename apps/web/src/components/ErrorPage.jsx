@@ -25,10 +25,8 @@ export default function ErrorPage({msg}) {
         <Titled title={(s) => `Error ${sep} ${s}`}>
             <div className="error-page">
                 <p>Sorry, an unexpected error occurred.</p>
-                <p>
-                    Error message is:
-                    <div className="error-msg">{msg}</div>
-                </p>
+                <p>Error message is:</p>
+                <div className="error-msg">{msg}</div>
                 <hr/>
                 <div className="button-group">
                     <p>Press one of the following buttons:</p>
