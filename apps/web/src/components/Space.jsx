@@ -3,18 +3,18 @@ import {useMatch, useNavigate, useParams} from "react-router-dom";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import {Titled} from "react-titled";
 import {useDispatch, useSelector} from "react-redux";
-import SpaceUserList from "../SpaceUserList";
-import RemoveSpaceAction from "../actions/space/RemoveSpaceAction";
-import RenameSpaceAction from "../actions/space/RenameSpaceAction";
+import SpaceUserList from "./SpaceUserList";
+import RemoveSpaceAction from "./actions/space/RemoveSpaceAction";
+import RenameSpaceAction from "./actions/space/RenameSpaceAction";
 import {
     reset,
     subscribeToSpace,
     unsubscribeFromSpace
-} from "../../redux/space/actions";
-import Waiting from "../common/Waiting";
-import SpaceModelList from "../SpaceModelList";
-import SpaceInfo from "../SpaceInfo";
-import {sep} from "../../constants";
+} from "../redux/space/actions";
+import Waiting from "./Waiting";
+import SpaceModelList from "./SpaceModelList";
+import SpaceInfo from "./SpaceInfo";
+import {sep} from "../constants";
 
 export default function Space() {
     const {spaceId} = useParams();

@@ -5,7 +5,7 @@ import remarkMath from "remark-math";
 import remarkRehype from "remark-rehype";
 import rehypeKatex from "rehype-katex";
 import {Titled} from "react-titled";
-import {sep} from "../../constants";
+import {sep} from "../constants";
 
 export default function Help() {
     return (

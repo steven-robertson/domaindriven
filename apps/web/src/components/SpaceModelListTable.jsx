@@ -2,7 +2,7 @@ import React, {useEffect, useState, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useParams} from "react-router-dom";
 import {roundUp} from "../maths";
-import Table from "./common/Table";
+import Table from "./Table";
 import {
     subscribeToSpaceModels,
     subscribeToSpaceModelsTotal,

@@ -1,6 +1,6 @@
 import React from "react";
-import {store} from "../../redux/store";
-import {actions} from "../../redux/error/actions";
+import {store} from "../redux/store";
+import {actions} from "../redux/error/actions";
 
 export default class ErrorBoundary extends React.Component {
 

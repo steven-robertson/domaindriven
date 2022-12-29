@@ -8,14 +8,14 @@ import {
     unsubscribeFromModel,
     viewRemove,
     viewUpsert
-} from "../../redux/model/actions";
-import Waiting from "../common/Waiting";
+} from "../redux/model/actions";
+import Waiting from "./Waiting";
 import ContextMapping from "./ContextMapping";
 import PropTypes from "prop-types";
 import BackupList from "./BackupList";
 import Context from "./Context";
 import ErrorNotFound from "./ErrorNotFound";
-import {sep} from "../../constants";
+import {sep} from "../constants";
 
 export default function Model() {
     const {modelId} = useParams();

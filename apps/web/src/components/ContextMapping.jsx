@@ -5,16 +5,16 @@ import {useMatch, useNavigate} from "react-router-dom";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import {Titled} from "react-titled";
 import classNames from "classnames";
-import ContextList from "../ContextList";
-import ConnectionList from "../ConnectionList";
-import ContextMap from "../ContextMap";
-import ModelViewers from "../ModelViewers";
-import RemoveModelAction from "../actions/model/RemoveModelAction";
-import CloneModelAction from "../actions/model/CloneModelAction";
-import RenameModelAction from "../actions/model/RenameModelAction";
-import TransferModelAction from "../actions/model/TransferModelAction";
-import ViewModelBackupsAction from "../actions/model/ViewModelBackupsAction";
-import {sep} from "../../constants";
+import ContextList from "./ContextList";
+import ConnectionList from "./ConnectionList";
+import ContextMap from "./ContextMap";
+import ModelViewers from "./ModelViewers";
+import RemoveModelAction from "./actions/model/RemoveModelAction";
+import CloneModelAction from "./actions/model/CloneModelAction";
+import RenameModelAction from "./actions/model/RenameModelAction";
+import TransferModelAction from "./actions/model/TransferModelAction";
+import ViewModelBackupsAction from "./actions/model/ViewModelBackupsAction";
+import {sep} from "../constants";
 
 ContextMapping.propTypes = {
     modelId: PropTypes.string.isRequired

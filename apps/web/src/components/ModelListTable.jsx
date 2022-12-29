@@ -9,7 +9,7 @@ import {
     unsubscribeFromModelList,
     unsubscribeFromModelListTotal
 } from "../redux/modelList/actions";
-import Table from "./common/Table";
+import Table from "./Table";
 import FormatRelativeDate from "./FormatRelativeDate";
 
 export default function ModelListTable() {
