@@ -31,8 +31,7 @@ const props =  {
     logPlantUML: isDev && devLogging,
     logSubs: isDev && devLogging,
     plantUMLBase,
-    siteName: 'Domain-Driven',
-    titleSep: '|'
+    siteName: 'Domain-Driven'
 }
 
 export default props;
