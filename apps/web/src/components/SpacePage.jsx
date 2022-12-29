@@ -16,7 +16,7 @@ import SpaceModelList from "./SpaceModelList";
 import SpaceInfo from "./SpaceInfo";
 import {sep} from "../constants";
 
-export default function Space() {
+export default function SpacePage() {
     const {spaceId} = useParams();
 
     const dispatch = useDispatch();

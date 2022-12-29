@@ -12,12 +12,12 @@ import {
 import Waiting from "./Waiting";
 import ContextMapping from "./ContextMapping";
 import PropTypes from "prop-types";
-import BackupList from "./BackupList";
+import BackupListPage from "./BackupListPage";
 import Context from "./Context";
-import ErrorNotFound from "./ErrorNotFound";
+import ErrorNotFoundPage from "./ErrorNotFoundPage";
 import {sep} from "../constants";
 
-export default function Model() {
+export default function ModelPage() {
     const {modelId} = useParams();
 
     const dispatch = useDispatch();
@@ -49,13 +49,13 @@ export default function Model() {
                 <Route exact path="/relations" element={<SwitchContext modelId={modelId}/>}/>
                 <Route exact path="/alternatives" element={<SwitchContext modelId={modelId}/>}/>
                 <Route exact path="/notes" element={<SwitchContext modelId={modelId}/>}/>
-                <Route exact path="/backups" element={<BackupList/>}/>
+                <Route exact path="/backups" element={<BackupListPage/>}/>
                 <Route exact path="/contexts/:contextId" element={<Context/>}/>
                 <Route exact path="/contexts/:contextId/groups" element={<Context/>}/>
                 <Route exact path="/contexts/:contextId/relations" element={<Context/>}/>
                 <Route exact path="/contexts/:contextId/alternatives" element={<Context/>}/>
                 <Route exact path="/contexts/:contextId/notes" element={<Context/>}/>
-                <Route path="*" element={<ErrorNotFound/>}/>
+                <Route path="*" element={<ErrorNotFoundPage/>}/>
             </Routes>
         </Titled>
     )

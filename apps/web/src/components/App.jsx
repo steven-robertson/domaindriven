@@ -7,20 +7,20 @@ import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import RequireAuth from "./RequireAuth";
 import RequireSubscriber from "./RequireSubscriber";
-import Error from "./Error";
+import ErrorPage from "./ErrorPage";
 import ErrorBoundary from "./ErrorBoundary";
-import ErrorNotFound from "./ErrorNotFound";
+import ErrorNotFoundPage from "./ErrorNotFoundPage";
 import RequireUserInfo from "./RequireUserInfo";
-import Help from "./Help";
-import BackupList from "./BackupList";
+import HelpPage from "./HelpPage";
+import BackupListPage from "./BackupListPage";
 import LockScreen from "./LockScreen";
-import Home from "./Home";
-import Space from "./Space";
-import Model from "./Model";
+import HomePage from "./HomePage";
+import SpacePage from "./SpacePage";
+import ModelPage from "./ModelPage";
 import AppBreadcrumbs from "./AppBreadcrumbs";
+import PrivacyPolicyPage from "./PrivacyPolicyPage";
+import TermsOfUsePage from "./TermsOfUsePage";
 import Constants from "../constants";
-import LegalPrivacy from "./LegalPrivacy";
-import LegalTerms from "./LegalTerms";
 
 export default function App() {
     const err = useSelector(state => state?.error.msg);
@@ -31,7 +31,7 @@ export default function App() {
                 <AppHeader/>
                 <div className="page-content">
                     <AppBreadcrumbs/>
-                    <Error msg={err}/>
+                    <ErrorPage msg={err}/>
                 </div>
                 <AppFooter/>
             </Titled>
@@ -49,17 +49,17 @@ export default function App() {
                             <AppBreadcrumbs/>
                             <ErrorBoundary>
                                 <Routes>
-                                    <Route exact path="/" element={<Home/>}/>
-                                    <Route exact path="/spaces/" element={<Home/>}/>
-                                    <Route exact path="/spaces/:spaceId" element={<Space/>}/>
-                                    <Route exact path="/spaces/:spaceId/members" element={<Space/>}/>
-                                    <Route exact path="/spaces/:spaceId/info" element={<Space/>}/>
-                                    <Route exact path="/models/:modelId/backups" element={<BackupList/>}/>
-                                    <Route path="/models/:modelId/*" element={<Model/>}/>
-                                    <Route exact path="/help" element={<Help/>}/>
-                                    <Route exact path="/legal/privacy-policy" element={<LegalPrivacy/>}/>
-                                    <Route exact path="/legal/terms-of-use" element={<LegalTerms/>}/>
-                                    <Route path="*" element={<ErrorNotFound/>}/>
+                                    <Route exact path="/" element={<HomePage/>}/>
+                                    <Route exact path="/spaces/" element={<HomePage/>}/>
+                                    <Route exact path="/spaces/:spaceId" element={<SpacePage/>}/>
+                                    <Route exact path="/spaces/:spaceId/members" element={<SpacePage/>}/>
+                                    <Route exact path="/spaces/:spaceId/info" element={<SpacePage/>}/>
+                                    <Route exact path="/models/:modelId/backups" element={<BackupListPage/>}/>
+                                    <Route path="/models/:modelId/*" element={<ModelPage/>}/>
+                                    <Route exact path="/help" element={<HelpPage/>}/>
+                                    <Route exact path="/legal/privacy-policy" element={<PrivacyPolicyPage/>}/>
+                                    <Route exact path="/legal/terms-of-use" element={<TermsOfUsePage/>}/>
+                                    <Route path="*" element={<ErrorNotFoundPage/>}/>
                                 </Routes>
                             </ErrorBoundary>
                         </RequireUserInfo>

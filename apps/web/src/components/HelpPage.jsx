@@ -7,7 +7,7 @@ import rehypeKatex from "rehype-katex";
 import {Titled} from "react-titled";
 import {sep} from "../constants";
 
-export default function Help() {
+export default function HelpPage() {
     return (
         <Titled title={(s) => `Help ${sep} ${s}`}>
             <Overview/>

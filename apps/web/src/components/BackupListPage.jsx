@@ -22,7 +22,7 @@ import RestoreModelAction from "./actions/model/RestoreModelAction";
 import BackToModelAction from "./actions/model/BackToModelAction";
 import {sep} from "../constants";
 
-export default function BackupList() {
+export default function BackupListPage() {
     const {modelId} = useParams();
 
     const dispatch = useDispatch();

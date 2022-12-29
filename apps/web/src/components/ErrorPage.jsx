@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-Error.propTypes = {
+ErrorPage.propTypes = {
     msg: PropTypes.string.isRequired
 }
 
-export default function Error({msg}) {
+export default function ErrorPage({msg}) {
 
     function handleReload() {
         window.location.reload();

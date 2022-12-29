@@ -4,7 +4,7 @@ import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import ModelList from "./ModelList";
 import SpaceList from "./SpaceList";
 
-export default function Home() {
+export default function HomePage() {
     const navigate = useNavigate();
 
     const [tabIndex, setTabIndex] = useState(0);
