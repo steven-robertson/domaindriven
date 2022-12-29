@@ -1,5 +1,5 @@
 import {store} from "./redux/store";
-import {error} from "./redux/actions/error";
+import {actions} from "./redux/error/actions";
 
 /**
  * @param title {string}
@@ -7,7 +7,7 @@ import {error} from "./redux/actions/error";
  */
 export function handleError(title, data) {
     console.error(title, data);
-    store.dispatch(error(title));
+    store.dispatch(actions(title));
 }
 
 /**
@@ -18,10 +18,10 @@ export function handleWebsocketCallbackError(data) {
     if (data?.details?.errors && data.details.errors.length > 0 ) {
         const msg = `${title} (${data.details.errors[0].message})`;
         console.error(msg)
-        store.dispatch(error(msg));
+        store.dispatch(actions(msg));
     } else {
         console.error(title, data);
-        store.dispatch(error(title));
+        store.dispatch(actions(title));
     }
 }
 
@@ -30,7 +30,7 @@ export function handleWebsocketCallbackError(data) {
  */
 export function handleException(e) {
     console.error(e);
-    store.dispatch(error(`[Exception] ${e}`));
+    store.dispatch(actions(`[Exception] ${e}`));
 }
 
 /**
@@ -39,7 +39,7 @@ export function handleException(e) {
 export function handleRequestException(e) {
     console.error(e);
     const {title, description} = getRequestError(e);
-    store.dispatch(error(`${title}. ${description}`));
+    store.dispatch(actions(`${title}. ${description}`));
 }
 
 /**

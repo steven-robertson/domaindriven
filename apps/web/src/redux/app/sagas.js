@@ -1,7 +1,7 @@
 import {select, takeLatest, put, call} from "redux-saga/effects";
 import gql from "graphql-tag";
 import {gqlFetch} from "../../graphql_fetch";
-import {actionTypes, receivePrivacyPolicy, receiveTermsOfUse} from "../actions/app";
+import {actionTypes, receivePrivacyPolicy, receiveTermsOfUse} from "./actions";
 import {handleException} from "../../errors";
 
 // -----------------------------------------------------------------------------

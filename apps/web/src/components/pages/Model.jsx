@@ -8,7 +8,7 @@ import {
     unsubscribeFromModel,
     viewRemove,
     viewUpsert
-} from "../../redux/actions/model";
+} from "../../redux/model/actions";
 import Waiting from "../common/Waiting";
 import ContextMapping from "./ContextMapping";
 import PropTypes from "prop-types";

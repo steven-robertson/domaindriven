@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addSpace} from "../../../redux/actions/space";
+import {addSpace} from "../../../redux/space/actions";
 
 export default function AddSpaceAction() {
     const dispatch = useDispatch();

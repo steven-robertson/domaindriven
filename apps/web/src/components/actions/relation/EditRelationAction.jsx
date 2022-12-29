@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import classNames from "classnames";
 import ActionLink from "../ActionLink";
 import {getMultipliers} from "../../../multipliers";
-import {editRelation} from "../../../redux/actions/context";
+import {editRelation} from "../../../redux/context/actions";
 import {isDuplicated} from "./AddRelationAction";
 
 EditRelationAction.propTypes = {

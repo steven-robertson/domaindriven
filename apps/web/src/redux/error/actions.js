@@ -7,7 +7,7 @@ export const reset = () => ({
     type: actionTypes.reset
 });
 
-export const error = (msg) => ({
+export const actions = (msg) => ({
     type: actionTypes.error,
     msg
 });

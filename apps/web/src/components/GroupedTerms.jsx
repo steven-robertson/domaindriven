@@ -5,7 +5,7 @@ import Definition from "./Definition";
 import AddGroupAction from "./actions/group/AddGroupAction";
 import EditGroupAction from "./actions/group/EditGroupAction";
 import RemoveGroupAction from "./actions/group/RemoveGroupAction";
-import {setGroupedTermsEnabled} from "../redux/actions/context";
+import {setGroupedTermsEnabled} from "../redux/context/actions";
 import ActionLink from "./actions/ActionLink";
 import AddTermAction from "./actions/term/AddTermAction";
 import AddRelationAction from "./actions/relation/AddRelationAction";

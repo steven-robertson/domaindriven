@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
-import {getAuthInfo} from "../../redux/actions/user";
+import {getAuthInfo} from "../../redux/user/actions";
 import Waiting from "./Waiting";
 import Loading from "./Loading";
 

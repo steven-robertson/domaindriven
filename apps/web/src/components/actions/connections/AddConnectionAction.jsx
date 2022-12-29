@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addConnection} from "../../../redux/actions/model";
+import {addConnection} from "../../../redux/model/actions";
 
 AddConnectionAction.propTypes = {
     modelId: PropTypes.string.isRequired

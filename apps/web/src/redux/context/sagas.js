@@ -7,17 +7,17 @@ import {
     reset,
     subscribeToContext,
     subscribeToContextCallback,
-} from "../actions/context";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction,
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleError, handleException, handleWebsocketCallbackError} from "../../errors";
 import {gqlFetch} from "../../graphql_fetch";
 import {isDuplicated as isTermDuplicated, isSameTerm} from "../../components/actions/term/AddTermAction";
 import {isDuplicated as isRelationDuplicated} from "../../components/actions/relation/AddRelationAction";
-import {viewUpsert} from "../actions/model";
+import {viewUpsert} from "../model/actions";
 
 // -----------------------------------------------------------------------------
 // Action watchers

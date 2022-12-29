@@ -8,7 +8,7 @@ import {
     subscribeToSpaceModelsTotal,
     unsubscribeFromSpaceModels,
     unsubscribeFromSpaceModelsTotal
-} from "../redux/actions/space";
+} from "../redux/space/actions";
 import FormatRelativeDate from "./FormatRelativeDate";
 
 export default function SpaceModelListTable() {

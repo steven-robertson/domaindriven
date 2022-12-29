@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {transferModel} from "../../../redux/actions/model";
+import {transferModel} from "../../../redux/model/actions";
 
 TransferModelAction.propTypes = {
     modelId: PropTypes.string.isRequired

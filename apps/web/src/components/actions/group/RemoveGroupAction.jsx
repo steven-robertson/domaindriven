@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {removeGroup} from "../../../redux/actions/context";
+import {removeGroup} from "../../../redux/context/actions";
 
 RemoveGroupAction.propTypes = {
     groupId: PropTypes.string.isRequired

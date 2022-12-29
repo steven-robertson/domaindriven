@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {removeTerm} from "../../../redux/actions/context";
+import {removeTerm} from "../../../redux/context/actions";
 
 RemoveTermAction.propTypes = {
     termId: PropTypes.string.isRequired

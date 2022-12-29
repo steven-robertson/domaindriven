@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/backupList";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
@@ -6,13 +6,13 @@ import {actionTypes} from "../actions/backupList";
 
 /**
  * @type {{
- * backupList: Object[],
- * backupListTotal: number,
+ * terms: Object[],
+ * relations: Object[]
  * }}
  */
 const initialState = {
-    backupList: undefined,
-    backupListTotal: undefined
+    terms: undefined,
+    relations: undefined
 };
 
 // -----------------------------------------------------------------------------
@@ -23,16 +23,16 @@ function reset() {
     return {...initialState}
 }
 
-function receiveBackupListQueryResult(state, action) {
-    // noinspection JSUnresolvedVariable
-    const backupList = action.result.backup;
-    return { ...state, backupList }
-}
+function receiveContextTermsQueryResult(state, action) {
 
-function receiveBackupListTotal(state, action) {
+    // noinspection JSUnresolvedVariable
+    const context = action.result?.context_by_pk;
+    console.assert(context != null, 'result is null');
+
     return {
         ...state,
-        backupListTotal: action.total
+        terms: context.terms,
+        relations: context.relations
     }
 }
 
@@ -42,8 +42,7 @@ function receiveBackupListTotal(state, action) {
 
 const actionsMap = {
     [actionTypes.reset]: reset,
-    [actionTypes.receiveBackupListQueryResult]: receiveBackupListQueryResult,
-    [actionTypes.receiveBackupListTotal]: receiveBackupListTotal,
+    [actionTypes.receiveContextTermsQueryResult]: receiveContextTermsQueryResult,
 };
 
 export default function reducer(state = initialState, action) {

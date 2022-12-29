@@ -6,7 +6,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addContext} from "../../../redux/actions/context";
+import {addContext} from "../../../redux/context/actions";
 
 AddContextAction.propTypes = {
     modelId: PropTypes.string

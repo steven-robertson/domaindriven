@@ -1,17 +1,17 @@
 import axios from "axios";
 import {put, takeLatest} from "redux-saga/effects";
 import {handleError, handleException, handleRequestException, handleWebsocketCallbackError} from "../../errors";
-import {actionTypes, setAuthInfo} from "../actions/user";
+import {actionTypes, setAuthInfo} from "./actions";
 import {
     receiveUserInfoQueryResult,
     resetUserInfo,
     subscribeToUserInfo,
     subscribeToUserInfoCallback
-} from "../actions/user";
+} from "./actions";
 import Constants from "../../constants";
 import {login} from "../../auth";
 import gql from "graphql-tag";
-import {subscribe, subscribeAction, unsubscribeAction} from "../actions/subscriber";
+import {subscribe, subscribeAction, unsubscribeAction} from "../subscriber/actions";
 
 // -----------------------------------------------------------------------------
 // Action watchers

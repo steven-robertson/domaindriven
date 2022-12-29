@@ -6,12 +6,12 @@ import {
     reset,
     subscribeToContextTerms,
     subscribeToContextTermsCallback,
-} from "../actions/import";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction,
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleError, handleException, handleWebsocketCallbackError} from "../../errors";
 
 // -----------------------------------------------------------------------------

@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addRelation} from "../../../redux/actions/context";
+import {addRelation} from "../../../redux/context/actions";
 import {getMultipliers} from "../../../multipliers";
 import classNames from "classnames";
 

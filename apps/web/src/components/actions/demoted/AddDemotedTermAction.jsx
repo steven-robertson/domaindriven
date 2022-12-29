@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import classNames from "classnames";
 import ActionLink from "../ActionLink";
-import {addDemotedTerm} from "../../../redux/actions/context";
+import {addDemotedTerm} from "../../../redux/context/actions";
 import {normaliseTerm} from "../term/AddTermAction";
 
 AddDemotedTermAction.propTypes = {

@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import ActionLink from "../ActionLink";
 import {convertMarkdown} from "../../../markdown";
-import {editNotes} from "../../../redux/actions/context";
+import {editNotes} from "../../../redux/context/actions";
 
 EditContextNotesAction.propTypes = {
     contextId: PropTypes.string.isRequired

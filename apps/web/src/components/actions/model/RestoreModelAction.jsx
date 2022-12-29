@@ -6,7 +6,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {restoreModel} from "../../../redux/actions/model";
+import {restoreModel} from "../../../redux/model/actions";
 
 RestoreModelAction.propTypes = {
     backupId: PropTypes.string.isRequired

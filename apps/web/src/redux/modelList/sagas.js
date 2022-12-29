@@ -8,12 +8,12 @@ import {
     subscribeToModelListCallback,
     subscribeToModelListTotal,
     subscribeToModelListTotalCallback,
-} from "../actions/modelList";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleException, handleWebsocketCallbackError} from "../../errors";
 
 // -----------------------------------------------------------------------------

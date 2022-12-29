@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import ActionLink from "../ActionLink";
 import {convertMarkdown} from "../../../markdown";
-import {editInfo} from "../../../redux/actions/space";
+import {editInfo} from "../../../redux/space/actions";
 
 EditSpaceInfoAction.propTypes = {
     spaceId: PropTypes.string.isRequired

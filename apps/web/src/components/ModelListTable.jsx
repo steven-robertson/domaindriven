@@ -8,7 +8,7 @@ import {
     subscribeToModelListTotal,
     unsubscribeFromModelList,
     unsubscribeFromModelListTotal
-} from "../redux/actions/modelList";
+} from "../redux/modelList/actions";
 import Table from "./common/Table";
 import FormatRelativeDate from "./FormatRelativeDate";
 

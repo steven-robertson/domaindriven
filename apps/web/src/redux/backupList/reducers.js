@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/error";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
@@ -6,11 +6,13 @@ import {actionTypes} from "../actions/error";
 
 /**
  * @type {{
- * msg: string,
+ * backupList: Object[],
+ * backupListTotal: number,
  * }}
  */
 const initialState = {
-    msg: undefined
+    backupList: undefined,
+    backupListTotal: undefined
 };
 
 // -----------------------------------------------------------------------------
@@ -18,14 +20,20 @@ const initialState = {
 // -----------------------------------------------------------------------------
 
 function reset() {
-    return {...initialState};
+    return {...initialState}
 }
 
-function error(state, action) {
+function receiveBackupListQueryResult(state, action) {
+    // noinspection JSUnresolvedVariable
+    const backupList = action.result.backup;
+    return { ...state, backupList }
+}
+
+function receiveBackupListTotal(state, action) {
     return {
         ...state,
-        msg: action.msg
-    };
+        backupListTotal: action.total
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -34,8 +42,8 @@ function error(state, action) {
 
 const actionsMap = {
     [actionTypes.reset]: reset,
-    [actionTypes.error]: error,
-    ['@@router/ON_LOCATION_CHANGED']: reset,
+    [actionTypes.receiveBackupListQueryResult]: receiveBackupListQueryResult,
+    [actionTypes.receiveBackupListTotal]: receiveBackupListTotal,
 };
 
 export default function reducer(state = initialState, action) {

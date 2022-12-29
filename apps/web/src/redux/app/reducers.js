@@ -1,39 +1,29 @@
-import {actionTypes} from "../actions/contextList";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
 // -----------------------------------------------------------------------------
 
-/**
- * @type {{
- * contextList: Object[],
- * contextListTotal: number,
- * }}
- */
 const initialState = {
-    contextList: undefined,
-    contextListTotal: undefined
+    privacyPolicy: undefined,
+    termsOfUse: undefined
 };
 
 // -----------------------------------------------------------------------------
 // Actions
 // -----------------------------------------------------------------------------
 
-function reset() {
-    return {...initialState}
-}
-
-function receiveContextListQueryResult(state, action) {
+function receivePrivacyPolicy(state, action) {
     return {
         ...state,
-        contextList: action.result.context
+        privacyPolicy: action.text
     }
 }
 
-function receiveContextListTotal(state, action) {
+function receiveTermsOfUse(state, action) {
     return {
         ...state,
-        contextListTotal: action.total
+        termsOfUse: action.text
     }
 }
 
@@ -42,9 +32,8 @@ function receiveContextListTotal(state, action) {
 // -----------------------------------------------------------------------------
 
 const actionsMap = {
-    [actionTypes.reset]: reset,
-    [actionTypes.receiveContextListQueryResult]: receiveContextListQueryResult,
-    [actionTypes.receiveContextListTotal]: receiveContextListTotal,
+    [actionTypes.receivePrivacyPolicy]: receivePrivacyPolicy,
+    [actionTypes.receiveTermsOfUse]: receiveTermsOfUse,
 };
 
 export default function reducer(state = initialState, action) {

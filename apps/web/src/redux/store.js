@@ -7,31 +7,31 @@ import {createBrowserHistory} from "history";
 import Constants from "../constants";
 
 // Reducers
-import appReducer from "./reducers/app";
-import backupListReducer from "./reducers/backupList";
-import contextReducer from "./reducers/context";
-import contextListReducer from "./reducers/contextList";
-import errorReducer from "./reducers/error";
-import importReducer from "./reducers/import";
-import modelReducer from "./reducers/model";
-import modelListReducer from "./reducers/modelList";
-import spaceReducer from "./reducers/space";
-import spaceListReducer from "./reducers/spaceList";
-import subscriberReducer from "./reducers/subscriber";
-import userReducer from "./reducers/user";
+import appReducer from "./app/reducers";
+import backupListReducer from "./backupList/reducers";
+import contextReducer from "./context/reducers";
+import contextListReducer from "./contextList/reducers";
+import errorReducer from "./error/reducers";
+import importReducer from "./import/reducers";
+import modelReducer from "./model/reducers";
+import modelListReducer from "./modelList/reducers";
+import spaceReducer from "./space/reducers";
+import spaceListReducer from "./spaceList/reducers";
+import subscriberReducer from "./subscriber/reducers";
+import userReducer from "./user/reducers";
 
 // Sagas
-import * as appSagas from "./sagas/app";
-import * as backupListSagas from "./sagas/backupList";
-import * as contextSagas from "./sagas/context";
-import * as contextListSagas from "./sagas/contextList";
-import * as importSagas from "./sagas/import";
-import * as modelSagas from "./sagas/model";
-import * as modelListSagas from "./sagas/modelList";
-import * as spaceSagas from "./sagas/space";
-import * as spaceListSagas from "./sagas/spaceList";
-import * as subscriberSagas from "./sagas/subscriber";
-import * as userSagas from "./sagas/user";
+import * as appSagas from "./app/sagas";
+import * as backupListSagas from "./backupList/sagas";
+import * as contextSagas from "./context/sagas";
+import * as contextListSagas from "./contextList/sagas";
+import * as importSagas from "./import/sagas";
+import * as modelSagas from "./model/sagas";
+import * as modelListSagas from "./modelList/sagas";
+import * as spaceSagas from "./space/sagas";
+import * as spaceListSagas from "./spaceList/sagas";
+import * as subscriberSagas from "./subscriber/sagas";
+import * as userSagas from "./user/sagas";
 
 const loggingMiddleware = (store) => {
     return (next) => {

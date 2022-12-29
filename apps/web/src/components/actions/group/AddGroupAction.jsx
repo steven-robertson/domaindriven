@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addGroup} from "../../../redux/actions/context";
+import {addGroup} from "../../../redux/context/actions";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import {convertMarkdown} from "../../../markdown";
 

@@ -8,12 +8,12 @@ import {
     subscribeToSpaceListCallback,
     subscribeToSpaceListTotal,
     subscribeToSpaceListTotalCallback,
-} from "../actions/spaceList";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleException, handleWebsocketCallbackError} from "../../errors";
 
 // -----------------------------------------------------------------------------

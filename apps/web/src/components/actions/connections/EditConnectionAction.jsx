@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {editConnection} from "../../../redux/actions/model";
+import {editConnection} from "../../../redux/model/actions";
 import {isDuplicated} from "./AddConnectionAction";
 
 EditConnectionAction.propTypes = {

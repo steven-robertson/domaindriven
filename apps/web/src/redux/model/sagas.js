@@ -8,12 +8,12 @@ import {
     subscribeToModel,
     subscribeToModelCallback,
     viewUpsert,
-} from "../actions/model";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction,
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleError, handleException, handleWebsocketCallbackError} from "../../errors";
 import {gqlFetch} from "../../graphql_fetch";
 import {screenLock, screenUnlock} from "../../lock_screen";

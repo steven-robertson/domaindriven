@@ -17,12 +17,12 @@ import {
     subscribeToSpaceUsersCallback,
     subscribeToSpaceUsersTotal,
     subscribeToSpaceUsersTotalCallback,
-} from "../actions/space";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction,
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleError, handleException, handleWebsocketCallbackError} from "../../errors";
 import {gqlFetch} from "../../graphql_fetch";
 

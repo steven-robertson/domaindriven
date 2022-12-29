@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import ActionLink from "../ActionLink";
-import {editTerm} from "../../../redux/actions/context";
+import {editTerm} from "../../../redux/context/actions";
 import {getClassName, isDuplicated, isSameTerm} from "./AddTermAction";
 import {convertMarkdown} from "../../../markdown";
 

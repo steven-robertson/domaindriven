@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addMember} from "../../../redux/actions/space";
+import {addMember} from "../../../redux/space/actions";
 
 AddMemberAction.propTypes = {
     spaceId: PropTypes.string.isRequired

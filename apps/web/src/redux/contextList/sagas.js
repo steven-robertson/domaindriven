@@ -8,12 +8,12 @@ import {
     subscribeToContextListCallback,
     subscribeToContextListTotal,
     subscribeToContextListTotalCallback,
-} from "../actions/contextList";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleException, handleWebsocketCallbackError} from "../../errors";
 
 // -----------------------------------------------------------------------------

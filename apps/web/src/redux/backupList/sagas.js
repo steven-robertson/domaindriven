@@ -8,12 +8,12 @@ import {
     receiveBackupListTotal,
     subscribeToBackupListTotal,
     subscribeToBackupListTotalCallback,
-} from "../actions/backupList";
+} from "./actions";
 import {
     subscribe,
     subscribeAction,
     unsubscribeAction
-} from "../actions/subscriber";
+} from "../subscriber/actions";
 import {handleException, handleWebsocketCallbackError} from "../../errors";
 
 // -----------------------------------------------------------------------------

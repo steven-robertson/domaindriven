@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {removeSpace} from "../../../redux/actions/space";
+import {removeSpace} from "../../../redux/space/actions";
 
 RemoveSpaceAction.propTypes = {
     spaceId: PropTypes.string.isRequired

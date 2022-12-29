@@ -6,7 +6,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {addModel} from "../../../redux/actions/model";
+import {addModel} from "../../../redux/model/actions";
 
 AddModelAction.propTypes = {
     spaceId: PropTypes.string

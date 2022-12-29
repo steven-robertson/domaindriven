@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/spaceList";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
@@ -6,13 +6,13 @@ import {actionTypes} from "../actions/spaceList";
 
 /**
  * @type {{
- * spaceList: Object[],
- * spaceListTotal: number,
+ * modelList: Object[],
+ * modelListTotal: number,
  * }}
  */
 const initialState = {
-    spaceList: undefined,
-    spaceListTotal: undefined
+    modelList: undefined,
+    modelListTotal: undefined
 };
 
 // -----------------------------------------------------------------------------
@@ -23,17 +23,17 @@ function reset() {
     return {...initialState}
 }
 
-function receiveSpaceListQueryResult(state, action) {
+function receiveModelListQueryResult(state, action) {
     return {
         ...state,
-        spaceList: action.result.space
+        modelList: action.result.model
     }
 }
 
-function receiveSpaceListTotal(state, action) {
+function receiveModelListTotal(state, action) {
     return {
         ...state,
-        spaceListTotal: action.total
+        modelListTotal: action.total
     }
 }
 
@@ -43,8 +43,8 @@ function receiveSpaceListTotal(state, action) {
 
 const actionsMap = {
     [actionTypes.reset]: reset,
-    [actionTypes.receiveSpaceListQueryResult]: receiveSpaceListQueryResult,
-    [actionTypes.receiveSpaceListTotal]: receiveSpaceListTotal,
+    [actionTypes.receiveModelListQueryResult]: receiveModelListQueryResult,
+    [actionTypes.receiveModelListTotal]: receiveModelListTotal,
 };
 
 export default function reducer(state = initialState, action) {

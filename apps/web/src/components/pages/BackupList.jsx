@@ -8,12 +8,12 @@ import {
     subscribeToBackupListTotal,
     unsubscribeFromBackupList,
     unsubscribeFromBackupListTotal
-} from "../../redux/actions/backupList";
+} from "../../redux/backupList/actions";
 import {
     reset as resetModel,
     subscribeToModel,
     unsubscribeFromModel
-} from "../../redux/actions/model";
+} from "../../redux/model/actions";
 import {roundUp} from "../../maths";
 import Waiting from "../common/Waiting";
 import Table from "../common/Table";

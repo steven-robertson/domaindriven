@@ -6,7 +6,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {cloneModel} from "../../../redux/actions/model";
+import {cloneModel} from "../../../redux/model/actions";
 
 CloneModelAction.propTypes = {
     modelId: PropTypes.string.isRequired

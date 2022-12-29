@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import ReactMarkdown from "react-markdown";
-import {requestPrivacyPolicy} from "../../redux/actions/app";
+import {requestPrivacyPolicy} from "../../redux/app/actions";
 
 export default function LegalPrivacy() {
     const dispatch = useDispatch();

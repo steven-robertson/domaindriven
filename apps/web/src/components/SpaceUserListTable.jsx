@@ -8,7 +8,7 @@ import {
     subscribeToSpaceUsersTotal,
     unsubscribeFromSpaceUsers,
     unsubscribeFromSpaceUsersTotal
-} from "../redux/actions/space";
+} from "../redux/space/actions";
 import FormatRelativeDate from "./FormatRelativeDate";
 
 export default function SpaceUserListTable() {

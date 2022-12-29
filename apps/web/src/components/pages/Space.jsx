@@ -10,7 +10,7 @@ import {
     reset,
     subscribeToSpace,
     unsubscribeFromSpace
-} from "../../redux/actions/space";
+} from "../../redux/space/actions";
 import Waiting from "../common/Waiting";
 import SpaceModelList from "../SpaceModelList";
 import SpaceInfo from "../SpaceInfo";

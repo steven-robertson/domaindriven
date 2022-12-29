@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import classNames from "classnames";
 import ActionLink from "../ActionLink";
-import {editDemotedTerm} from "../../../redux/actions/context";
+import {editDemotedTerm} from "../../../redux/context/actions";
 import {isDuplicated} from "./AddDemotedTermAction";
 import {isSameTerm} from "../term/AddTermAction";
 

@@ -1,29 +1,39 @@
-import {actionTypes} from "../actions/app";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
 // -----------------------------------------------------------------------------
 
+/**
+ * @type {{
+ * spaceList: Object[],
+ * spaceListTotal: number,
+ * }}
+ */
 const initialState = {
-    privacyPolicy: undefined,
-    termsOfUse: undefined
+    spaceList: undefined,
+    spaceListTotal: undefined
 };
 
 // -----------------------------------------------------------------------------
 // Actions
 // -----------------------------------------------------------------------------
 
-function receivePrivacyPolicy(state, action) {
+function reset() {
+    return {...initialState}
+}
+
+function receiveSpaceListQueryResult(state, action) {
     return {
         ...state,
-        privacyPolicy: action.text
+        spaceList: action.result.space
     }
 }
 
-function receiveTermsOfUse(state, action) {
+function receiveSpaceListTotal(state, action) {
     return {
         ...state,
-        termsOfUse: action.text
+        spaceListTotal: action.total
     }
 }
 
@@ -32,8 +42,9 @@ function receiveTermsOfUse(state, action) {
 // -----------------------------------------------------------------------------
 
 const actionsMap = {
-    [actionTypes.receivePrivacyPolicy]: receivePrivacyPolicy,
-    [actionTypes.receiveTermsOfUse]: receiveTermsOfUse,
+    [actionTypes.reset]: reset,
+    [actionTypes.receiveSpaceListQueryResult]: receiveSpaceListQueryResult,
+    [actionTypes.receiveSpaceListTotal]: receiveSpaceListTotal,
 };
 
 export default function reducer(state = initialState, action) {

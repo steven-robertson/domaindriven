@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {renameSpace} from "../../../redux/actions/space";
+import {renameSpace} from "../../../redux/space/actions";
 
 RenameSpaceAction.propTypes = {
     spaceId: PropTypes.string.isRequired

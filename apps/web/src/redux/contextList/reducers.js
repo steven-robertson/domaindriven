@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/import";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
@@ -6,13 +6,13 @@ import {actionTypes} from "../actions/import";
 
 /**
  * @type {{
- * terms: Object[],
- * relations: Object[]
+ * contextList: Object[],
+ * contextListTotal: number,
  * }}
  */
 const initialState = {
-    terms: undefined,
-    relations: undefined
+    contextList: undefined,
+    contextListTotal: undefined
 };
 
 // -----------------------------------------------------------------------------
@@ -23,16 +23,17 @@ function reset() {
     return {...initialState}
 }
 
-function receiveContextTermsQueryResult(state, action) {
-
-    // noinspection JSUnresolvedVariable
-    const context = action.result?.context_by_pk;
-    console.assert(context != null, 'result is null');
-
+function receiveContextListQueryResult(state, action) {
     return {
         ...state,
-        terms: context.terms,
-        relations: context.relations
+        contextList: action.result.context
+    }
+}
+
+function receiveContextListTotal(state, action) {
+    return {
+        ...state,
+        contextListTotal: action.total
     }
 }
 
@@ -42,7 +43,8 @@ function receiveContextTermsQueryResult(state, action) {
 
 const actionsMap = {
     [actionTypes.reset]: reset,
-    [actionTypes.receiveContextTermsQueryResult]: receiveContextTermsQueryResult,
+    [actionTypes.receiveContextListQueryResult]: receiveContextListQueryResult,
+    [actionTypes.receiveContextListTotal]: receiveContextListTotal,
 };
 
 export default function reducer(state = initialState, action) {

@@ -8,7 +8,7 @@ import EditTermAction from "./actions/term/EditTermAction";
 import RemoveTermAction from "./actions/term/RemoveTermAction";
 import ActionLink from "./actions/ActionLink";
 import AddRelationAction from "./actions/relation/AddRelationAction";
-import {setTermsEnabled} from "../redux/actions/context";
+import {setTermsEnabled} from "../redux/context/actions";
 
 Terms.propTypes = {
     contextId: PropTypes.string.isRequired

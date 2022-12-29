@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/space";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state

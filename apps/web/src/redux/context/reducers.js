@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/context";
+import {actionTypes} from "./actions";
 import {getModelViewers} from "../../model_viewers";
 
 // -----------------------------------------------------------------------------

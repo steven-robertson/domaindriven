@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import ActionLink from "../ActionLink";
 import {convertMarkdown} from "../../../markdown";
-import {editGroup} from "../../../redux/actions/context";
+import {editGroup} from "../../../redux/context/actions";
 import {getEnabledTermIds, isDuplicated, inGroup, setTermsEnabled} from "./AddGroupAction";
 
 EditGroupAction.propTypes = {

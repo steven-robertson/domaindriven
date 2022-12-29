@@ -13,15 +13,15 @@ import {
     reset as resetContextTerms,
     subscribeToContextTerms,
     unsubscribeFromContextTerms
-} from "../../../redux/actions/import";
-import {importTerms} from "../../../redux/actions/context";
+} from "../../../redux/import/actions";
+import {importTerms} from "../../../redux/context/actions";
 import {
     reset,
     subscribeToContextList,
     subscribeToContextListTotal,
     unsubscribeFromContextList,
     unsubscribeFromContextListTotal
-} from "../../../redux/actions/contextList";
+} from "../../../redux/contextList/actions";
 
 ImportTermsAction.propTypes = {
     contextId: PropTypes.string.isRequired

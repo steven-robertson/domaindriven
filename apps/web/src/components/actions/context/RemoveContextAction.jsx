@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {removeContext} from "../../../redux/actions/context";
+import {removeContext} from "../../../redux/context/actions";
 
 RemoveContextAction.propTypes = {
     contextId: PropTypes.string.isRequired,

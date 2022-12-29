@@ -8,7 +8,7 @@ import {
     subscribeToSpaceListTotal,
     unsubscribeFromSpaceList,
     unsubscribeFromSpaceListTotal
-} from "../redux/actions/spaceList";
+} from "../redux/spaceList/actions";
 import Table from "./common/Table";
 import FormatRelativeDate from "./FormatRelativeDate";
 

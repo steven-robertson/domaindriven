@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {removeConnection} from "../../../redux/actions/model";
+import {removeConnection} from "../../../redux/model/actions";
 
 RemoveConnectionAction.propTypes = {
     connectionId: PropTypes.string.isRequired

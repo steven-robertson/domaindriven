@@ -9,7 +9,7 @@ import {
     reset,
     subscribeToContext,
     unsubscribeFromContext
-} from "../../redux/actions/context";
+} from "../../redux/context/actions";
 import Waiting from "../common/Waiting";
 import DomainModel from "../DomainModel";
 import Terms from "../Terms";

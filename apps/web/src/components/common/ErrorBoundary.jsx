@@ -1,6 +1,6 @@
 import React from "react";
 import {store} from "../../redux/store";
-import {error} from "../../redux/actions/error";
+import {actions} from "../../redux/error/actions";
 
 export default class ErrorBoundary extends React.Component {
 
@@ -16,7 +16,7 @@ export default class ErrorBoundary extends React.Component {
 
     render() {
         if (this.state.hasError) {
-            store.dispatch(error('There was a problem in rendering this content.'));
+            store.dispatch(actions('There was a problem in rendering this content.'));
             return <></>
         }
 

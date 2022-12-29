@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
-import {renameModel} from "../../../redux/actions/model";
+import {renameModel} from "../../../redux/model/actions";
 
 RenameModelAction.propTypes = {
     modelId: PropTypes.string.isRequired

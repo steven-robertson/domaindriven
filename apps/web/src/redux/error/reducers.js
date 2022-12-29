@@ -1,4 +1,4 @@
-import {actionTypes} from "../actions/modelList";
+import {actionTypes} from "./actions";
 
 // -----------------------------------------------------------------------------
 // Initial state
@@ -6,13 +6,11 @@ import {actionTypes} from "../actions/modelList";
 
 /**
  * @type {{
- * modelList: Object[],
- * modelListTotal: number,
+ * msg: string,
  * }}
  */
 const initialState = {
-    modelList: undefined,
-    modelListTotal: undefined
+    msg: undefined
 };
 
 // -----------------------------------------------------------------------------
@@ -20,21 +18,14 @@ const initialState = {
 // -----------------------------------------------------------------------------
 
 function reset() {
-    return {...initialState}
+    return {...initialState};
 }
 
-function receiveModelListQueryResult(state, action) {
+function error(state, action) {
     return {
         ...state,
-        modelList: action.result.model
-    }
-}
-
-function receiveModelListTotal(state, action) {
-    return {
-        ...state,
-        modelListTotal: action.total
-    }
+        msg: action.msg
+    };
 }
 
 // -----------------------------------------------------------------------------
@@ -43,8 +34,8 @@ function receiveModelListTotal(state, action) {
 
 const actionsMap = {
     [actionTypes.reset]: reset,
-    [actionTypes.receiveModelListQueryResult]: receiveModelListQueryResult,
-    [actionTypes.receiveModelListTotal]: receiveModelListTotal,
+    [actionTypes.error]: error,
+    ['@@router/ON_LOCATION_CHANGED']: reset,
 };
 
 export default function reducer(state = initialState, action) {

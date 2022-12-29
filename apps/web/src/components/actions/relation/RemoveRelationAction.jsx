@@ -5,7 +5,7 @@ import {disableBodyScroll, enableBodyScroll} from "body-scroll-lock";
 import Modal from "react-modal";
 import ActionLink from "../ActionLink";
 import {buildConnection} from "../../DomainModel";
-import {removeRelation} from "../../../redux/actions/context";
+import {removeRelation} from "../../../redux/context/actions";
 
 RemoveRelationAction.propTypes = {
     relationId: PropTypes.string.isRequired

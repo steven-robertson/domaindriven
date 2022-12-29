@@ -6,7 +6,7 @@ import {useForm} from "react-hook-form";
 import Modal from "react-modal";
 import TextareaMarkdownEditor from "react-textarea-markdown-editor";
 import ActionLink from "../ActionLink";
-import {addTerm} from "../../../redux/actions/context";
+import {addTerm} from "../../../redux/context/actions";
 import {convertMarkdown} from "../../../markdown";
 
 AddTermAction.propTypes = {
