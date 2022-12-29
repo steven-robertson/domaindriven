@@ -25,46 +25,38 @@ import Constants from "../constants";
 export default function App() {
     const err = useSelector(state => state?.error.msg);
 
-    if (err) {
-        return (
-            <Titled title={() => Constants.siteName}>
-                <AppHeader/>
-                <div className="page-content">
-                    <AppBreadcrumbs/>
-                    <ErrorPage msg={err}/>
-                </div>
-                <AppFooter/>
-            </Titled>
-        )
-    }
-
     return (
         <Titled title={() => Constants.siteName}>
             <LockScreen/>
             <AppHeader/>
             <div className="page-content">
-                <RequireAuth>
-                    <RequireSubscriber>
-                        <RequireUserInfo>
-                            <AppBreadcrumbs/>
-                            <ErrorBoundary>
-                                <Routes>
-                                    <Route exact path="/" element={<HomePage/>}/>
-                                    <Route exact path="/spaces/" element={<HomePage/>}/>
-                                    <Route exact path="/spaces/:spaceId" element={<SpacePage/>}/>
-                                    <Route exact path="/spaces/:spaceId/members" element={<SpacePage/>}/>
-                                    <Route exact path="/spaces/:spaceId/info" element={<SpacePage/>}/>
-                                    <Route exact path="/models/:modelId/backups" element={<BackupListPage/>}/>
-                                    <Route path="/models/:modelId/*" element={<ModelPage/>}/>
-                                    <Route exact path="/help" element={<HelpPage/>}/>
-                                    <Route exact path="/legal/privacy-policy" element={<PrivacyPolicyPage/>}/>
-                                    <Route exact path="/legal/terms-of-use" element={<TermsOfUsePage/>}/>
-                                    <Route path="*" element={<ErrorNotFoundPage/>}/>
-                                </Routes>
-                            </ErrorBoundary>
-                        </RequireUserInfo>
-                    </RequireSubscriber>
-                </RequireAuth>
+                {err &&
+                    <ErrorPage msg={err}/>
+                }
+                {!err &&
+                    <RequireAuth>
+                        <RequireSubscriber>
+                            <RequireUserInfo>
+                                <AppBreadcrumbs/>
+                                <ErrorBoundary>
+                                    <Routes>
+                                        <Route exact path="/" element={<HomePage/>}/>
+                                        <Route exact path="/spaces/" element={<HomePage/>}/>
+                                        <Route exact path="/spaces/:spaceId" element={<SpacePage/>}/>
+                                        <Route exact path="/spaces/:spaceId/members" element={<SpacePage/>}/>
+                                        <Route exact path="/spaces/:spaceId/info" element={<SpacePage/>}/>
+                                        <Route exact path="/models/:modelId/backups" element={<BackupListPage/>}/>
+                                        <Route path="/models/:modelId/*" element={<ModelPage/>}/>
+                                        <Route exact path="/help" element={<HelpPage/>}/>
+                                        <Route exact path="/legal/privacy-policy" element={<PrivacyPolicyPage/>}/>
+                                        <Route exact path="/legal/terms-of-use" element={<TermsOfUsePage/>}/>
+                                        <Route path="*" element={<ErrorNotFoundPage/>}/>
+                                    </Routes>
+                                </ErrorBoundary>
+                            </RequireUserInfo>
+                        </RequireSubscriber>
+                    </RequireAuth>
+                }
             </div>
             <AppFooter/>
             <Toaster position="bottom-right"/>
