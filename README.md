@@ -44,7 +44,6 @@ docker compose up --build -d
 | 3000 | PlantUML            | HTTP     |
 | 4000 | Hasura GraphQL      | HTTP     |
 | 5000 | Auth                | HTTP     |
-| 7000 | Auth HTTPS          | HTTPS    |
 | 8000 | React               | HTTP     |
 | 8001 | FastAPI             | HTTP     |
 | 8080 | Proxy               | HTTP     |
