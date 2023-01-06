@@ -4,7 +4,7 @@
             set auth url /auth/
             crypto key verify {env.AUTH_JWT_SECRET}
             crypto key token name access_token
-            allow roles domaindriven-user
+            allow roles {env.HASURA_JWT_DEFAULT_ROLE}
             set token sources cookie
         }
     }
